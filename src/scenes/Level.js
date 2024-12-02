@@ -3,6 +3,11 @@
 
 /* START OF COMPILED CODE */
 
+import BackgroundPrefab from "./BackgroundPrefab.js";
+import ForegroundPrefab from "./ForegroundPrefab.js";
+import RightWallPrefab from "./RightWallPrefab.js";
+import LeftWallPrefab from "../prefabs/LeftWallPrefab.js";
+import PlayerPrefab from "./PlayerPrefab.js";
 import PlatformGroupPrefab from "../prefabs/PlatformGroupPrefab.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -69,23 +74,19 @@ export default class Level extends Phaser.Scene {
 		const levelLayer = this.add.layer();
 
 		// backgroundTileSprite
-		const backgroundTileSprite = this.add.tileSprite(0, 0, 240, 176, "background");
-		backgroundTileSprite.setOrigin(0, 0);
+		const backgroundTileSprite = new BackgroundPrefab(this, 0, 0);
 		levelLayer.add(backgroundTileSprite);
 
 		// foregroundTileSprite
-		const foregroundTileSprite = this.add.tileSprite(0, 0, 240, 176, "middleground-no-fungus");
-		foregroundTileSprite.setOrigin(0, 0);
+		const foregroundTileSprite = new ForegroundPrefab(this, 0, 0);
 		levelLayer.add(foregroundTileSprite);
 
 		// rightWallTileSprite
-		const rightWallTileSprite = this.add.tileSprite(224, 0, 16, 176, "tilesets", 229);
-		rightWallTileSprite.setOrigin(0, 0);
+		const rightWallTileSprite = new RightWallPrefab(this, 224, 0);
 		levelLayer.add(rightWallTileSprite);
 
 		// leftWallTileSprite
-		const leftWallTileSprite = this.add.tileSprite(0, 0, 16, 176, "tilesets", 232);
-		leftWallTileSprite.setOrigin(0, 0);
+		const leftWallTileSprite = new LeftWallPrefab(this, 0, 0);
 		levelLayer.add(leftWallTileSprite);
 
 		// groundLayer
@@ -95,10 +96,7 @@ export default class Level extends Phaser.Scene {
 		const playerLayer = this.add.layer();
 
 		// player
-		const player = this.physics.add.sprite(120, 136, "player-idle", 0);
-		player.body.checkCollision.up = false;
-		player.body.setOffset(35, 20);
-		player.body.setSize(11, 44, false);
+		const player = new PlayerPrefab(this, 120, 136);
 		playerLayer.add(player);
 
 		// platformGroupPrefab
@@ -128,7 +126,7 @@ export default class Level extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
-	/** @type {Phaser.Physics.Arcade.Sprite} */
+	/** @type {PlayerPrefab} */
 	player;
 	/** @type {PlatformGroupPrefab} */
 	platformGroupPrefab;
@@ -138,11 +136,11 @@ export default class Level extends Phaser.Scene {
 	leftKeyboardKey;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	rightKeyboardKey;
-	/** @type {Phaser.GameObjects.TileSprite[]} */
+	/** @type {Array<LeftWallPrefab|RightWallPrefab|ForegroundPrefab|BackgroundPrefab>} */
 	levelTileSprites;
-	/** @type {Phaser.GameObjects.TileSprite[]} */
+	/** @type {Array<LeftWallPrefab|RightWallPrefab>} */
 	walls;
-	/** @type {Phaser.GameObjects.TileSprite[]} */
+	/** @type {Array<LeftWallPrefab|RightWallPrefab|ForegroundPrefab>} */
 	movingLevelTileSprites;
 
 	/* START-USER-CODE */
@@ -172,23 +170,20 @@ export default class Level extends Phaser.Scene {
 
 		this.player.body.updateFromGameObject();
 		this.player.body.enable = false;
-		this.time.delayedCall(500, () => {
-			// enable player physics after game starts
-			this.player.body.enable = true;
-			this.player.body.velocity.y = -500;
 
-			this.time.delayedCall(1000, () => {
-				this.cameras.main.fadeOut(500,0,0,0);
-				this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-					this.player.body.velocity.y = 0;
-					this.player.play("playerSpin");
-					this.cameras.main.startFollow(this.player, false, 0.1, 1, 0.1);
-					this.cameras.main.setDeadzone(this.scale.width);
-					this.cameras.main.fadeIn(500,0,0,0);
-					this.levelStarted = true;
-					this.scene.launch("UI");
-				});
-			});
+		const glowFx = this.player.postFX.addGlow(0x00ffff, 1, 0, false, 0.1, 5);
+		const glowTween = this.tweens.add({
+			targets: glowFx,
+			outerStrength: 4,
+			duration: 800,
+			yoyo: true,
+			repeat: -1
+		});
+
+		this.input.once(Phaser.Input.Events.POINTER_DOWN, () => {
+			glowTween.destroy();
+			this.player.postFX.clear();
+			this.startGame();
 		});
 	}
 
@@ -201,7 +196,7 @@ export default class Level extends Phaser.Scene {
 		const isTouchingDown = this.player.body.touching.down;
 		if (isTouchingDown) {
 			this.player.play("playerJump");
-			this.player.on(Phaser.Animations.Events.ANIMATION_COMPLETE_KEY + "playerJump", () => {
+			this.player.once(Phaser.Animations.Events.ANIMATION_COMPLETE_KEY + "playerJump", () => {
 				this.player.play("playerSpin");
 			});
 			this.player.setVelocityY(-350);
@@ -243,6 +238,25 @@ export default class Level extends Phaser.Scene {
 			console.log('game over');
 			this.scene.stop();
 		}
+	}
+
+	startGame() {
+		// enable player physics after game starts
+		this.player.body.enable = true;
+		this.player.body.velocity.y = -500;
+
+		this.time.delayedCall(1000, () => {
+			this.cameras.main.fadeOut(500,0,0,0);
+			this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+				this.player.body.velocity.y = 0;
+				this.player.play("playerSpin");
+				this.cameras.main.startFollow(this.player, false, 0.1, 1, 0.1);
+				this.cameras.main.setDeadzone(this.scale.width);
+				this.cameras.main.fadeIn(500,0,0,0);
+				this.levelStarted = true;
+				this.scene.launch("UI");
+			});
+		});
 	}
 
 	/* END-USER-CODE */

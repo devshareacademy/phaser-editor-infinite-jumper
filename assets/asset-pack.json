@@ -17,6 +17,11 @@
                 "key": "middleground-no-fungus"
             },
             {
+                "url": "assets/player/player-duck.png",
+                "type": "image",
+                "key": "player-duck"
+            },
+            {
                 "url": "assets/player/player-idle.png",
                 "frameConfig": {
                     "frameWidth": 80,
@@ -41,6 +46,13 @@
                 },
                 "type": "spritesheet",
                 "key": "player-jump"
+            },
+            {
+                "url": "assets/font/PressStart2P-Regular.ttf",
+                "format": "truetype",
+                "descriptors": {},
+                "type": "font",
+                "key": "PressStart2P-Regular"
             },
             {
                 "url": "assets/level/tilesets.png",

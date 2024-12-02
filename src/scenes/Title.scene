@@ -1,0 +1,75 @@
+{
+    "id": "019d4538-472f-420d-b527-49aecd1571b9",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Title",
+        "borderWidth": 240,
+        "borderHeight": 176
+    },
+    "displayList": [
+        {
+            "type": "Layer",
+            "id": "09e32ef3-b2f7-4188-b43a-26c4e54c9a04",
+            "label": "backgroundLayer",
+            "displayName": "Background Layer",
+            "list": [
+                {
+                    "prefabId": "920a9e20-3da9-4ce9-92d1-bedf85c75088",
+                    "id": "0a08e4b0-5664-4eeb-8285-446a0067b6a2",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "backgroundPrefab",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "da2b7804-9d4b-41a2-b29f-0c4df306ebc3",
+                    "id": "31765d29-f495-477d-a84c-02ae77087bf3",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "foregroundPrefab",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "59f4b105-9efc-4390-b584-1f1b790ce681",
+                    "id": "ea6c874d-f3b3-4cba-8029-851dc497e714",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "rightWallPrefab",
+                    "x": 224,
+                    "y": 0
+                },
+                {
+                    "prefabId": "01991e20-2750-4b00-a97b-3998763c734a",
+                    "id": "9b5b841d-a3b1-4202-b654-acbce1da087c",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "leftWallPrefab",
+                    "x": 0,
+                    "y": 0
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

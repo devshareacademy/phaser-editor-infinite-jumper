@@ -18,59 +18,52 @@
             "label": "levelLayer",
             "list": [
                 {
-                    "type": "TileSprite",
+                    "prefabId": "920a9e20-3da9-4ce9-92d1-bedf85c75088",
                     "id": "25766698-bd70-4b92-a3ee-8af36d2d2515",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "backgroundTileSprite",
                     "displayName": "Background",
-                    "texture": {
-                        "key": "background"
-                    },
-                    "originX": 0,
-                    "originY": 0,
-                    "width": 240,
-                    "height": 176
+                    "x": 0,
+                    "y": 0
                 },
                 {
-                    "type": "TileSprite",
+                    "prefabId": "da2b7804-9d4b-41a2-b29f-0c4df306ebc3",
                     "id": "2a89ed8d-b6c9-41cb-bd73-8f15f7fd3602",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "foregroundTileSprite",
                     "displayName": "Foreground",
-                    "texture": {
-                        "key": "middleground-no-fungus"
-                    },
-                    "originX": 0,
-                    "originY": 0,
-                    "width": 240,
-                    "height": 176
+                    "x": 0,
+                    "y": 0
                 },
                 {
-                    "type": "TileSprite",
+                    "prefabId": "59f4b105-9efc-4390-b584-1f1b790ce681",
                     "id": "4be7780a-91f0-4c1c-9093-08003cc1a293",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "rightWallTileSprite",
                     "displayName": "Right Wall",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 229
-                    },
                     "x": 224,
-                    "originX": 0,
-                    "originY": 0,
-                    "width": 16,
-                    "height": 176
+                    "y": 0
                 },
                 {
-                    "type": "TileSprite",
+                    "prefabId": "01991e20-2750-4b00-a97b-3998763c734a",
                     "id": "4c5ff9ea-4af6-4196-9db3-649669099488",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "leftWallTileSprite",
                     "displayName": "Left Wall",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 232
-                    },
-                    "originX": 0,
-                    "originY": 0,
-                    "width": 16,
-                    "height": 176
+                    "x": 0,
+                    "y": 0
                 }
             ]
         },
@@ -87,22 +80,17 @@
             "label": "playerLayer",
             "list": [
                 {
-                    "type": "ArcadeSprite",
+                    "prefabId": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
                     "id": "537e9a0f-2d45-4a90-af67-05181484bb7f",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "player",
                     "displayName": "Player",
                     "scope": "CLASS",
-                    "texture": {
-                        "key": "player-idle",
-                        "frame": 0
-                    },
                     "x": 120,
-                    "y": 136,
-                    "up": false,
-                    "body.width": 11,
-                    "body.height": 44,
-                    "body.offset.x": 35,
-                    "body.offset.y": 20
+                    "y": 136
                 }
             ]
         },
