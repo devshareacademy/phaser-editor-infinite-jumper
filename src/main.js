@@ -1,5 +1,6 @@
 import Level from "./scenes/Level.js";
 import Preload from "./scenes/Preload.js";
+import UI from "./scenes/UI.js";
 
 window.addEventListener('load', function () {
 
@@ -13,13 +14,14 @@ window.addEventListener('load', function () {
 			autoCenter: Phaser.Scale.CENTER_BOTH
 		},
 		pixelArt: true,
-		roundPixels: true,
+		roundPixels: false,
 		physics: {
 			arcade: {
 				gravity: {
 					x: 0,
-					y: 200
-				}
+					y: 300
+				},
+				debug: false
 			},
 			default: 'arcade'
 		}
@@ -27,4 +29,5 @@ window.addEventListener('load', function () {
 
 	game.scene.add("Preload", Preload, true);
 	game.scene.add("Level", Level);
+	game.scene.add("UI", UI);
 });

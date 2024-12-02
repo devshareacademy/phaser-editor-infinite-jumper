@@ -11,6 +11,9 @@ export default class PlatformPrefab extends Phaser.GameObjects.Container {
 	constructor(scene, x, y) {
 		super(scene, x ?? 0, y ?? 0);
 
+		this.scaleX = 0.75;
+		this.scaleY = 0.5;
+
 		// image_1
 		const image_1 = scene.add.image(0, 0, "tilesets", 26);
 		this.add(image_1);
@@ -33,10 +36,14 @@ export default class PlatformPrefab extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.setSize(80, 12);
 		/** @type {Phaser.Scene} */
 		const _scene = scene;
 		_scene.physics.world.enable(this);
-		this.body.setImmovable(true).setAllowGravity(false);
+		this.body.setImmovable(true).setAllowGravity(false).setOffset(32, 0);
+		this.body.checkCollision.down = false;
+		this.body.checkCollision.left = false;
+		this.body.checkCollision.right = false;
 		/* END-USER-CTR-CODE */
 	}
 

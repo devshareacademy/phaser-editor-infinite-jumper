@@ -1,0 +1,34 @@
+{
+    "id": "77d106fa-ed9f-4049-ad20-127cff7b9785",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "UI",
+        "borderWidth": 240,
+        "borderHeight": 176
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "5b7c0735-f6cc-438e-96a3-2d02ac8d2eb2",
+            "label": "scoreTextGameObject",
+            "displayName": "Score",
+            "scope": "CLASS",
+            "x": 235,
+            "y": 5,
+            "originX": 1,
+            "text": "0"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

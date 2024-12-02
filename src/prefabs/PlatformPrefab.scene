@@ -16,6 +16,8 @@
             "type": "Container",
             "id": "cc2e01e3-1657-49e4-b79f-7d6ab686398e",
             "label": "container_1",
+            "scaleX": 0.75,
+            "scaleY": 0.5,
             "list": [
                 {
                     "type": "Image",

@@ -75,7 +75,7 @@
                     "keyframe": false
                 }
             ],
-            "frameRate": 12,
+            "frameRate": 18,
             "skipMissedFrames": true,
             "randomFrame": false
         },
@@ -114,7 +114,7 @@
                     "keyframe": false
                 }
             ],
-            "frameRate": 12,
+            "frameRate": 16,
             "skipMissedFrames": true,
             "repeat": -1,
             "randomFrame": false

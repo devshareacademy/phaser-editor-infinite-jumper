@@ -97,13 +97,20 @@
                         "frame": 0
                     },
                     "x": 120,
-                    "y": 145,
+                    "y": 136,
+                    "up": false,
                     "body.width": 11,
                     "body.height": 44,
                     "body.offset.x": 35,
                     "body.offset.y": 20
                 }
             ]
+        },
+        {
+            "prefabId": "2ccf41e3-e49c-4424-a68d-36cc50509d75",
+            "id": "2b469068-76ea-4f82-8590-854f473f2113",
+            "label": "platformGroupPrefab",
+            "scope": "CLASS"
         }
     ],
     "plainObjects": [
@@ -137,6 +144,34 @@
                     "tileHeight": 16
                 }
             ]
+        },
+        {
+            "id": "a4a6aa24-caa7-42d2-adee-43a822a1e36f",
+            "type": "Collider",
+            "label": "playerWithPlatformsCollider",
+            "scope": "LOCAL",
+            "object1": "player",
+            "object2": "platformGroupPrefab.group"
+        },
+        {
+            "id": "cbfb2f7b-67fb-4cff-9a2f-b780ade4d55d",
+            "type": "Keyboard.Key",
+            "label": "leftKeyboardKey",
+            "keyCode": "LEFT"
+        },
+        {
+            "id": "d121258a-fc23-4941-9487-b21aea1a1576",
+            "type": "Keyboard.Key",
+            "label": "rightKeyboardKey",
+            "keyCode": "RIGHT"
+        },
+        {
+            "id": "5bb29eaf-8cba-4748-a619-e5e30c14fb4f",
+            "type": "Collider",
+            "label": "playerWithWallsCollider",
+            "scope": "LOCAL",
+            "object1": "player",
+            "object2": "walls"
         }
     ],
     "meta": {
@@ -168,6 +203,15 @@
                 "68703fb0-933e-478f-a156-f115c7d95cba",
                 "4c5ff9ea-4af6-4196-9db3-649669099488",
                 "4be7780a-91f0-4c1c-9093-08003cc1a293"
+            ]
+        },
+        {
+            "id": "b1922af6-8168-4b48-a75d-240636e73597",
+            "label": "movingLevelTileSprites",
+            "objectIds": [
+                "4c5ff9ea-4af6-4196-9db3-649669099488",
+                "4be7780a-91f0-4c1c-9093-08003cc1a293",
+                "2a89ed8d-b6c9-41cb-bd73-8f15f7fd3602"
             ]
         }
     ]
