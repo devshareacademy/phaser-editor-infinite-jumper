@@ -70,7 +70,16 @@ export default class Preload extends Phaser.Scene {
 
 	create() {
 
-		this.scene.start("Level");
+		this.scene.start("Title");
+	}
+
+	init() {
+		const isMobile = !this.sys.game.device.os.desktop;
+		if (isMobile) {
+			screen.orientation.lock("portrait").catch((error) => {
+				console.log(error.message);
+			});
+		}
 	}
 
 	/* END-USER-CODE */

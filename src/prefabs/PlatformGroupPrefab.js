@@ -19,12 +19,12 @@ export default class PlatformGroupPrefab extends Phaser.GameObjects.Layer {
 		});
 
 		// create initial platform for the start of the game
-		this.group.get(90, -200);
+		this.group.get(90, 0);
 
 		// create next set of platforms
 		for (let i = 1; i < 5; i += 1) {
 			const x = Phaser.Math.Between(10, 200);
-			const y = -150 * i + -200;
+			const y = -150 * i;
 
 			this.group.get(x, y);
 		}

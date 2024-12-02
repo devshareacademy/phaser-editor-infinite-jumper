@@ -3,11 +3,11 @@
 
 /* START OF COMPILED CODE */
 
-import BackgroundPrefab from "./BackgroundPrefab.js";
-import ForegroundPrefab from "./ForegroundPrefab.js";
-import RightWallPrefab from "./RightWallPrefab.js";
+import BackgroundPrefab from "../prefabs/BackgroundPrefab.js";
+import ForegroundPrefab from "../prefabs/ForegroundPrefab.js";
+import RightWallPrefab from "../prefabs/RightWallPrefab.js";
 import LeftWallPrefab from "../prefabs/LeftWallPrefab.js";
-import PlayerPrefab from "./PlayerPrefab.js";
+import PlayerPrefab from "../prefabs/PlayerPrefab.js";
 import PlatformGroupPrefab from "../prefabs/PlatformGroupPrefab.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -24,45 +24,6 @@ export default class Level extends Phaser.Scene {
 
 	/** @returns {void} */
 	editorCreate() {
-
-		// editabletilemap
-		this.cache.tilemap.add("editabletilemap_c7d66947-190a-4c6e-8517-469e089d8734", {
-			format: 1,
-			data: {
-				width: 15,
-				height: 2,
-				orientation: "orthogonal",
-				tilewidth: 16,
-				tileheight: 16,
-				tilesets: [
-					{
-						columns: 24,
-						margin: 0,
-						spacing: 0,
-						tilewidth: 16,
-						tileheight: 16,
-						tilecount: 288,
-						firstgid: 1,
-						image: "tilesets",
-						name: "tilesets",
-						imagewidth: 384,
-						imageheight: 192,
-					},
-				],
-				layers: [
-					{
-						type: "tilelayer",
-						name: "groundLayer",
-						width: 15,
-						height: 2,
-						opacity: 1,
-						data: [153, 146, 160, 148, 149, 0, 0, 0, 0, 0, 159, 151, 159, 148, 149, 177, 170, 184, 172, 173, 27, 28, 29, 30, 31, 183, 175, 183, 172, 173],
-					},
-				],
-			},
-		});
-		const editabletilemap = this.add.tilemap("editabletilemap_c7d66947-190a-4c6e-8517-469e089d8734");
-		editabletilemap.addTilesetImage("tilesets");
 
 		// leftKeyboardKey
 		const leftKeyboardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -89,14 +50,11 @@ export default class Level extends Phaser.Scene {
 		const leftWallTileSprite = new LeftWallPrefab(this, 0, 0);
 		levelLayer.add(leftWallTileSprite);
 
-		// groundLayer
-		editabletilemap.createLayer("groundLayer", ["tilesets"], 0, 144);
-
 		// playerLayer
 		const playerLayer = this.add.layer();
 
 		// player
-		const player = new PlayerPrefab(this, 120, 136);
+		const player = new PlayerPrefab(this, 120, -84);
 		playerLayer.add(player);
 
 		// platformGroupPrefab
@@ -116,7 +74,6 @@ export default class Level extends Phaser.Scene {
 
 		this.player = player;
 		this.platformGroupPrefab = platformGroupPrefab;
-		this.editabletilemap = editabletilemap;
 		this.leftKeyboardKey = leftKeyboardKey;
 		this.rightKeyboardKey = rightKeyboardKey;
 		this.levelTileSprites = levelTileSprites;
@@ -130,8 +87,6 @@ export default class Level extends Phaser.Scene {
 	player;
 	/** @type {PlatformGroupPrefab} */
 	platformGroupPrefab;
-	/** @type {Phaser.Tilemaps.Tilemap} */
-	editabletilemap;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	leftKeyboardKey;
 	/** @type {Phaser.Input.Keyboard.Key} */
@@ -147,7 +102,7 @@ export default class Level extends Phaser.Scene {
 
 	// Write more your code here
 	/** @type {boolean} */
-	levelStarted = false;
+	isGameOver = false;
 	/** @type {boolean} */
 	firstJumpMade = false;
 	/** @type {number} */
@@ -168,30 +123,20 @@ export default class Level extends Phaser.Scene {
 			tileSprite.body.setImmovable(true).setAllowGravity(false);
 		});
 
-		this.player.body.updateFromGameObject();
-		this.player.body.enable = false;
-
-		const glowFx = this.player.postFX.addGlow(0x00ffff, 1, 0, false, 0.1, 5);
-		const glowTween = this.tweens.add({
-			targets: glowFx,
-			outerStrength: 4,
-			duration: 800,
-			yoyo: true,
-			repeat: -1
-		});
-
-		this.input.once(Phaser.Input.Events.POINTER_DOWN, () => {
-			glowTween.destroy();
-			this.player.postFX.clear();
-			this.startGame();
-		});
+		this.isGameOver = false;
+		this.firstJumpMade = false;
+		this.currentScore = 0;
+		this.startMaxHeight = 0;
+		this.maxHeight = 0;
+		this.scene.launch("UI");
+		this.player.play("playerSpin");
+		this.player.body.enable = true;
+		this.cameras.main.fadeIn(500, 0, 0, 0);
+		this.cameras.main.startFollow(this.player, false, 0.1, 1, 0.1);
+		this.cameras.main.setDeadzone(this.scale.width);
 	}
 
 	update() {
-		if (!this.levelStarted) {
-			return;
-		}
-
 		const distance = Math.floor(Math.abs(this.player.body.bottom));
 		const isTouchingDown = this.player.body.touching.down;
 		if (isTouchingDown) {
@@ -206,10 +151,10 @@ export default class Level extends Phaser.Scene {
 			}
 		}
 
-		if (this.leftKeyboardKey.isDown && !isTouchingDown && this.firstJumpMade) {
+		if (this.leftKeyboardKey.isDown && !isTouchingDown && this.firstJumpMade && !this.isGameOver) {
 			this.player.setVelocityX(-150);
 			this.player.setFlipX(true);
-		} else if (this.rightKeyboardKey.isDown && !isTouchingDown && this.firstJumpMade) {
+		} else if (this.rightKeyboardKey.isDown && !isTouchingDown && this.firstJumpMade && !this.isGameOver) {
 			this.player.setVelocityX(150);
 			this.player.setFlipX(false);
 		} else {
@@ -234,31 +179,31 @@ export default class Level extends Phaser.Scene {
 		}
 
 		// handle game over
+		if (this.isGameOver) {
+			this.player.setVelocityY(15);
+			return;
+		}
+
 		if (this.player.y > this.platformGroupPrefab.bottomMostPlatformYPosition + 50) {
-			console.log('game over');
-			this.scene.stop();
+			this.isGameOver = true;
+			this.player.setVelocityY(15);
+			this.player.play("playerHurt");
+			const wipeFx = this.player.postFX.addWipe(0.1, 0, 1);
+			this.tweens.add({
+				targets: wipeFx,
+				progress: 1,
+				duration: 3000,
+				onComplete: () => {
+					this.player.body.enable = false;
+					this.cameras.main.fadeOut(500, 0, 0, 0);
+					this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+						this.scene.stop("UI");
+						this.scene.start("GameOver", { score: this.currentScore });
+					});
+				},
+			});
 		}
 	}
-
-	startGame() {
-		// enable player physics after game starts
-		this.player.body.enable = true;
-		this.player.body.velocity.y = -500;
-
-		this.time.delayedCall(1000, () => {
-			this.cameras.main.fadeOut(500,0,0,0);
-			this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-				this.player.body.velocity.y = 0;
-				this.player.play("playerSpin");
-				this.cameras.main.startFollow(this.player, false, 0.1, 1, 0.1);
-				this.cameras.main.setDeadzone(this.scale.width);
-				this.cameras.main.fadeIn(500,0,0,0);
-				this.levelStarted = true;
-				this.scene.launch("UI");
-			});
-		});
-	}
-
 	/* END-USER-CODE */
 }
 

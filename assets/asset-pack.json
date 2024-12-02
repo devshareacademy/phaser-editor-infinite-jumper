@@ -22,6 +22,19 @@
                 "key": "player-duck"
             },
             {
+                "url": "assets/player/player-hurt.png",
+                "frameConfig": {
+                    "frameWidth": 80,
+                    "frameHeight": 80,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-hurt"
+            },
+            {
                 "url": "assets/player/player-idle.png",
                 "frameConfig": {
                     "frameWidth": 80,

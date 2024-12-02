@@ -21,7 +21,9 @@
             "x": 235,
             "y": 5,
             "originX": 1,
-            "text": "0"
+            "text": "0",
+            "fontFamily": "PressStart2P-Regular",
+            "fontSize": "8px"
         }
     ],
     "plainObjects": [],

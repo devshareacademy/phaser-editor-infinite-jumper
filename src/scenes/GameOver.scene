@@ -1,0 +1,59 @@
+{
+    "id": "a6b43f65-b944-4cc7-9ddc-2b1b60b41886",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "GameOver",
+        "borderWidth": 240,
+        "borderHeight": 176
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "5d276568-3f73-401a-a884-92ad0e39f008",
+            "label": "gameOverTextGameObject",
+            "displayName": "Game Over",
+            "x": 30,
+            "y": 39,
+            "text": "Game Over",
+            "fontFamily": "PressStart2P-Regular",
+            "fontSize": "20px"
+        },
+        {
+            "type": "Text",
+            "id": "4dcd3121-d614-47ca-8717-1b607044c5b0",
+            "label": "scoreTextGameObject",
+            "displayName": "Score",
+            "x": 95,
+            "y": 97,
+            "text": "Score",
+            "fontFamily": "PressStart2P-Regular",
+            "fontSize": "10px"
+        },
+        {
+            "type": "Text",
+            "id": "099702d9-fc78-43f0-b513-6253d1099d21",
+            "label": "scoreValueTextGameObject",
+            "displayName": "Score Value",
+            "scope": "CLASS",
+            "x": 120,
+            "y": 122,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "fontFamily": "PressStart2P-Regular",
+            "fontSize": "10px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

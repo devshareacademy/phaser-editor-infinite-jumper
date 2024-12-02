@@ -23,7 +23,7 @@ export default class UI extends Phaser.Scene {
 		const scoreTextGameObject = this.add.text(235, 5, "", {});
 		scoreTextGameObject.setOrigin(1, 0);
 		scoreTextGameObject.text = "0";
-		scoreTextGameObject.setStyle({  });
+		scoreTextGameObject.setStyle({ "fontFamily": "PressStart2P-Regular", "fontSize": "8px" });
 
 		this.scoreTextGameObject = scoreTextGameObject;
 
