@@ -158,6 +158,8 @@ export default class Level extends Phaser.Scene {
 	startMaxHeight = 0;
 	/** @type {number} */
 	currentScore = 0;
+	/** @type {number} */
+	level = 0;
 
 	create() {
 		this.editorCreate();
@@ -175,6 +177,7 @@ export default class Level extends Phaser.Scene {
 		this.currentScore = 0;
 		this.startMaxHeight = 0;
 		this.maxHeight = 0;
+		this.level = 0;
 		this.player.play("playerSpin");
 		this.player.body.enable = true;
 		this.cameras.main.fadeIn(500, 0, 0, 0);
@@ -230,6 +233,11 @@ export default class Level extends Phaser.Scene {
 			this.maxHeight = distance;
 			this.currentScore = Math.floor((this.maxHeight - this.startMaxHeight)/10);
 			this.scene.get("UI").updateScoreText(this.currentScore);
+
+			if (this.currentScore > 200 && this.level === 0) {
+				this.level = 1;
+				this.platformGroupPrefab.enableMovingPlatforms = true;
+			}
 		}
 
 		// handle game over

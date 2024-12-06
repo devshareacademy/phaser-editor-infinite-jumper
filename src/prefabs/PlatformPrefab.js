@@ -3,6 +3,7 @@
 
 /* START OF COMPILED CODE */
 
+import HorizontalMove from "../components/HorizontalMove.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -14,12 +15,18 @@ export default class PlatformPrefab extends Phaser.Physics.Arcade.Image {
 		this.scaleX = 0.75;
 		this.scaleY = 0.5;
 		scene.physics.add.existing(this, false);
-		this.body.moves = false;
 		this.body.allowGravity = false;
 		this.body.checkCollision.down = false;
 		this.body.checkCollision.left = false;
 		this.body.checkCollision.right = false;
+		this.body.pushable = false;
 		this.body.setSize(80, 12, false);
+
+		// this (components)
+		const thisHorizontalMove = new HorizontalMove(this);
+		thisHorizontalMove.horizontalVelocity = 50;
+		thisHorizontalMove.minXPosition = 10;
+		thisHorizontalMove.maxXPosition = 200;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

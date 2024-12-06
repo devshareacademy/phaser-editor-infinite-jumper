@@ -16,16 +16,22 @@
             "type": "ArcadeImage",
             "id": "cc2e01e3-1657-49e4-b79f-7d6ab686398e",
             "label": "container_1",
+            "components": [
+                "HorizontalMove"
+            ],
+            "HorizontalMove.horizontalVelocity": 50,
+            "HorizontalMove.minXPosition": 10,
+            "HorizontalMove.maxXPosition": 200,
             "texture": {
                 "key": "platform"
             },
             "scaleX": 0.75,
             "scaleY": 0.5,
-            "moves": false,
             "allowGravity": false,
             "down": false,
             "left": false,
             "right": false,
+            "pushable": false,
             "body.width": 80,
             "body.height": 12
         }

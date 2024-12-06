@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
+import HorizontalMove from "../components/HorizontalMove.js";
 import PlatformPrefab from "./PlatformPrefab.js";
 /* END-USER-IMPORTS */
 
@@ -38,6 +39,8 @@ export default class PlatformGroupPrefab extends Phaser.GameObjects.Layer {
 	group;
 	/** @type {number} */
 	bottomMostPlatformYPosition = 0;
+	/** @type {boolean} */
+	enableMovingPlatforms = false;
 
 	update() {
 		const scrollY = this.scene.cameras.main.scrollY;
@@ -60,6 +63,17 @@ export default class PlatformGroupPrefab extends Phaser.GameObjects.Layer {
 			child.x = Phaser.Math.Between(10, 200);
 			childrenToMoveYOffset += Phaser.Math.Between(10, 40);
 			child.y = scrollY - childrenToMoveYOffset;
+
+			if (this.enableMovingPlatforms) {
+				const component = HorizontalMove.getComponent(child);
+				if (component) {
+					if (Phaser.Math.RND.between(0,1) === 1) {
+						component.enable();
+					} else {
+						component.disable();
+					}
+				}
+			}
 		});
 	}
 	/* END-USER-CODE */

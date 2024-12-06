@@ -1,5 +1,55 @@
 {
-    "components": [],
+    "components": [
+        {
+            "name": "HorizontalMove",
+            "displayName": "Horizontal Move",
+            "objectDisplayFormat": "move from \"${minXPosition}\" to \"${maxXPosition}\"",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.Physics.Arcade.Image",
+            "properties": [
+                {
+                    "name": "horizontalVelocity",
+                    "label": "Horizontal Velocity",
+                    "tooltip": "The horizontal velocity",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "minXPosition",
+                    "label": "Min X Position",
+                    "tooltip": "The min X position to move to",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "maxXPosition",
+                    "label": "Max X Position",
+                    "tooltip": "The max X position to move to",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "active",
+                    "label": "Active",
+                    "tooltip": "If the component should automatically move the game object",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        }
+    ],
     "meta": {
         "app": "Phaser Editor 2D - User Components Editor",
         "url": "https://phasereditor2d.com",
