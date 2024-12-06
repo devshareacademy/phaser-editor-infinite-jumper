@@ -1,5 +1,5 @@
 {
-    "id": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
+    "id": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -13,22 +13,16 @@
     },
     "displayList": [
         {
-            "type": "ArcadeSprite",
-            "id": "86101c20-9b01-4e6e-b897-888662542bbe",
-            "label": "player",
-            "displayName": "Player",
-            "scope": "CLASS",
+            "type": "TileSprite",
+            "id": "4318d885-711c-494c-b15d-be3beb9a8ca5",
+            "label": "tilesprite_1",
             "texture": {
-                "key": "player",
-                "frame": "player-idle-1.png"
+                "key": "wall"
             },
-            "animationPlayMethod": 1,
-            "animationKey": "playerIdle",
-            "up": false,
-            "body.width": 11,
-            "body.height": 44,
-            "body.offset.x": 35,
-            "body.offset.y": 20
+            "originX": 0,
+            "originY": 0,
+            "width": 32,
+            "height": 176
         }
     ],
     "plainObjects": [],
@@ -37,5 +31,17 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "tileOffsetY",
+            "label": "Tile Offset Y",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
 }

@@ -1,5 +1,5 @@
 {
-    "id": "920a9e20-3da9-4ce9-92d1-bedf85c75088",
+    "id": "0ed1159f-ee3d-4ce9-82da-e76768c045b5",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -13,17 +13,9 @@
     },
     "displayList": [
         {
-            "type": "TileSprite",
-            "id": "095c48f4-9875-4ef9-ab9e-9a34d3c37e9a",
-            "label": "backgroundTileSprite",
-            "displayName": "Background",
-            "texture": {
-                "key": "background_1"
-            },
-            "originX": 0,
-            "originY": 0,
-            "width": 240,
-            "height": 176
+            "type": "ScriptNode",
+            "id": "a9f5f366-7656-42dc-b7f0-fd1f80c0bfd0",
+            "label": "scriptnode_1"
         }
     ],
     "plainObjects": [],
@@ -32,5 +24,17 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "sceneKey",
+            "label": "Scene Key",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "scene-key"
+            }
+        }
+    ]
 }

@@ -42,19 +42,25 @@
                     "y": 0
                 },
                 {
-                    "prefabId": "59f4b105-9efc-4390-b584-1f1b790ce681",
+                    "prefabId": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
                     "id": "4be7780a-91f0-4c1c-9093-08003cc1a293",
                     "unlock": [
                         "x",
-                        "y"
+                        "y",
+                        "flipX",
+                        "flipY",
+                        "tileOffsetY"
                     ],
                     "label": "rightWallTileSprite",
                     "displayName": "Right Wall",
-                    "x": 224,
-                    "y": 0
+                    "tileOffsetY": -120,
+                    "x": 208,
+                    "y": 0,
+                    "flipX": true,
+                    "flipY": false
                 },
                 {
-                    "prefabId": "01991e20-2750-4b00-a97b-3998763c734a",
+                    "prefabId": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
                     "id": "4c5ff9ea-4af6-4196-9db3-649669099488",
                     "unlock": [
                         "x",
@@ -94,6 +100,66 @@
             "id": "2b469068-76ea-4f82-8590-854f473f2113",
             "label": "platformGroupPrefab",
             "scope": "CLASS"
+        },
+        {
+            "prefabId": "34cde368-8bd4-4596-97fc-47c6825699b1",
+            "id": "20c783c8-6c2e-486e-95eb-4625f8776ceb",
+            "unlock": [
+                "delay"
+            ],
+            "label": "timeEventActionScriptForSceneTransition",
+            "displayName": "Start Next Scene Script",
+            "scope": "CLASS",
+            "delay": 1000,
+            "list": [
+                {
+                    "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                    "id": "4de6ad85-7376-42e3-92c2-22f0725499d1",
+                    "unlock": [
+                        "duration",
+                        "fadeEvent"
+                    ],
+                    "label": "fadeEffectCameraActionScript_1",
+                    "duration": 500,
+                    "fadeEvent": "camerafadeoutcomplete",
+                    "list": [
+                        {
+                            "prefabId": "6b1b396b-83fa-4b7a-8360-c7e156fc0f24",
+                            "id": "3546a9f6-c8a0-43a7-9295-9aed1dcd0470",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript",
+                            "sceneKey": "GameOver"
+                        },
+                        {
+                            "prefabId": "884f45d6-b90f-4905-a987-3e9bed69c26e",
+                            "id": "f5623c16-0746-4cef-aed1-c2d99886cb08",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "stopSceneActionScript",
+                            "sceneKey": "UI"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "prefabId": "7bf8a19d-1211-4b59-bb38-b034085b171f",
+            "id": "a18def6f-3d61-4b6d-bd24-7cd2263d39c6",
+            "label": "onAwakeActionScript",
+            "list": [
+                {
+                    "prefabId": "0ed1159f-ee3d-4ce9-82da-e76768c045b5",
+                    "id": "a722c26c-7549-4466-8113-91ceb1e8de89",
+                    "unlock": [
+                        "sceneKey"
+                    ],
+                    "label": "launchSceneActionScript",
+                    "sceneKey": "UI"
+                }
+            ]
         }
     ],
     "plainObjects": [

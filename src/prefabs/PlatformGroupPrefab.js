@@ -44,14 +44,22 @@ export default class PlatformGroupPrefab extends Phaser.GameObjects.Layer {
 		const maxDist = this.scene.scale.height * 3;
 		const children = this.group.getChildren();
 		this.bottomMostPlatformYPosition = children[0].y;
+
+		const childrenToMove = [];
 		children.forEach((child) => {
 			if (child.y >= scrollY + maxDist) {
-				child.x = Phaser.Math.Between(10, 200);
-				child.y = scrollY - Phaser.Math.Between(10, 40);
+				childrenToMove.push(child);
 			}
 			if (child.y > this.bottomMostPlatformYPosition) {
 				this.bottomMostPlatformYPosition = child.y;
 			}
+		});
+
+		let childrenToMoveYOffset = 0;
+		childrenToMove.forEach((child, index) => {
+			child.x = Phaser.Math.Between(10, 200);
+			childrenToMoveYOffset += Phaser.Math.Between(10, 40);
+			child.y = scrollY - childrenToMoveYOffset;
 		});
 	}
 	/* END-USER-CODE */

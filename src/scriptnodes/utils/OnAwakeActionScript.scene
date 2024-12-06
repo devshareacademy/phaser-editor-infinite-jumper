@@ -1,5 +1,5 @@
 {
-    "id": "920a9e20-3da9-4ce9-92d1-bedf85c75088",
+    "id": "7bf8a19d-1211-4b59-bb38-b034085b171f",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,22 +8,14 @@
         "preloadMethodName": "",
         "preloadPackFiles": [],
         "createMethodName": "",
-        "borderWidth": 240,
-        "borderHeight": 176
+        "borderWidth": 288,
+        "borderHeight": 192
     },
     "displayList": [
         {
-            "type": "TileSprite",
-            "id": "095c48f4-9875-4ef9-ab9e-9a34d3c37e9a",
-            "label": "backgroundTileSprite",
-            "displayName": "Background",
-            "texture": {
-                "key": "background_1"
-            },
-            "originX": 0,
-            "originY": 0,
-            "width": 240,
-            "height": 176
+            "type": "ScriptNode",
+            "id": "de6c6e6e-eba9-410f-8bb6-b48674adf810",
+            "label": "scriptnode_1"
         }
     ],
     "plainObjects": [],

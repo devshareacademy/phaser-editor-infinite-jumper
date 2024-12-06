@@ -3,6 +3,10 @@
 
 /* START OF COMPILED CODE */
 
+import OnAwakeActionScript from "../scriptnodes/utils/OnAwakeActionScript.js";
+import TimeEventActionScript from "../scriptnodes/timer/TimeEventActionScript.js";
+import FadeEffectCameraActionScript from "../scriptnodes/camera/FadeEffectCameraActionScript.js";
+import StartSceneActionScript from "../scriptnodes/scene/StartSceneActionScript.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -35,6 +39,28 @@ export default class GameOver extends Phaser.Scene {
 		scoreValueTextGameObject.text = "0";
 		scoreValueTextGameObject.setStyle({ "fontFamily": "PressStart2P-Regular", "fontSize": "10px" });
 
+		// onAwakeActionScript
+		const onAwakeActionScript = new OnAwakeActionScript(this);
+
+		// timeEventActionScript
+		const timeEventActionScript = new TimeEventActionScript(onAwakeActionScript);
+
+		// fadeEffectCameraActionScript
+		const fadeEffectCameraActionScript = new FadeEffectCameraActionScript(timeEventActionScript);
+
+		// startSceneActionScript
+		const startSceneActionScript = new StartSceneActionScript(fadeEffectCameraActionScript);
+
+		// timeEventActionScript (prefab fields)
+		timeEventActionScript.delay = 3000;
+
+		// fadeEffectCameraActionScript (prefab fields)
+		fadeEffectCameraActionScript.duration = 500;
+		fadeEffectCameraActionScript.fadeEvent = "camerafadeoutcomplete";
+
+		// startSceneActionScript (prefab fields)
+		startSceneActionScript.sceneKey = "Title";
+
 		this.scoreValueTextGameObject = scoreValueTextGameObject;
 
 		this.events.emit("scene-awake");
@@ -46,21 +72,10 @@ export default class GameOver extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-	scoreData;
-
-	init(data) {
-		this.scoreData = data;
-	}
-
 	create() {
 		this.editorCreate();
-		this.scoreValueTextGameObject.setText(this.scoreData.score);
-		this.time.delayedCall(3000, () => {
-			this.cameras.main.fadeOut(500, 0, 0, 0);
-			this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-				this.scene.start("Title");
-			});
-		});
+		const score = this.registry.get('score');
+		this.scoreValueTextGameObject.setText(score);
 	}
 
 	/* END-USER-CODE */

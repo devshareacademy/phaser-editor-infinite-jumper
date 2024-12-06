@@ -13,62 +13,21 @@
     },
     "displayList": [
         {
-            "type": "Container",
+            "type": "ArcadeImage",
             "id": "cc2e01e3-1657-49e4-b79f-7d6ab686398e",
             "label": "container_1",
+            "texture": {
+                "key": "platform"
+            },
             "scaleX": 0.75,
             "scaleY": 0.5,
-            "list": [
-                {
-                    "type": "Image",
-                    "id": "a7a7445d-ad4b-4eae-8295-7b0e29afa648",
-                    "label": "image_1",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 26
-                    }
-                },
-                {
-                    "type": "Image",
-                    "id": "244fcab8-f9ec-4eba-a02a-a9ff68e8ae50",
-                    "label": "image_2",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 27
-                    },
-                    "x": 16
-                },
-                {
-                    "type": "Image",
-                    "id": "c3b6af5a-fd60-4234-b1ec-1e83ec35f772",
-                    "label": "image",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 28
-                    },
-                    "x": 32
-                },
-                {
-                    "type": "Image",
-                    "id": "fa516efb-7746-4914-a923-c78775d4a6ca",
-                    "label": "image_3",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 29
-                    },
-                    "x": 48
-                },
-                {
-                    "type": "Image",
-                    "id": "be5a8bd4-dae0-45bc-b132-dd6837296374",
-                    "label": "image_4",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 30
-                    },
-                    "x": 64
-                }
-            ]
+            "moves": false,
+            "allowGravity": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "body.width": 80,
+            "body.height": 12
         }
     ],
     "plainObjects": [],

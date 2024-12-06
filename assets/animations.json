@@ -5,26 +5,26 @@
             "type": "frame",
             "frames": [
                 {
-                    "key": "player-idle",
-                    "frame": 0,
+                    "key": "player",
+                    "frame": "player-idle-1.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-idle",
-                    "frame": 1,
+                    "key": "player",
+                    "frame": "player-idle-2.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-idle",
-                    "frame": 2,
+                    "key": "player",
+                    "frame": "player-idle-3.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-idle",
-                    "frame": 3,
+                    "key": "player",
+                    "frame": "player-idle-4.png",
                     "duration": 0,
                     "keyframe": false
                 }
@@ -39,38 +39,38 @@
             "type": "frame",
             "frames": [
                 {
-                    "key": "player-jump",
-                    "frame": 0,
+                    "key": "player",
+                    "frame": "player-jump-1.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 1,
+                    "key": "player",
+                    "frame": "player-jump-2.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 2,
+                    "key": "player",
+                    "frame": "player-jump-3.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 3,
+                    "key": "player",
+                    "frame": "player-jump-4.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 4,
+                    "key": "player",
+                    "frame": "player-jump-5.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 5,
+                    "key": "player",
+                    "frame": "player-jump-6.png",
                     "duration": 0,
                     "keyframe": false
                 }
@@ -80,36 +80,57 @@
             "randomFrame": false
         },
         {
+            "key": "playerHurt",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "player",
+                    "frame": "player-hurt-1.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "player",
+                    "frame": "player-hurt-2.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 8,
+            "skipMissedFrames": true,
+            "randomFrame": false
+        },
+        {
             "key": "playerSpin",
             "type": "frame",
             "frames": [
                 {
-                    "key": "player-jump",
-                    "frame": 1,
+                    "key": "player",
+                    "frame": "player-jump-2.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 2,
+                    "key": "player",
+                    "frame": "player-jump-3.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 3,
+                    "key": "player",
+                    "frame": "player-jump-4.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 4,
+                    "key": "player",
+                    "frame": "player-jump-5.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "player-jump",
-                    "frame": 5,
+                    "key": "player",
+                    "frame": "player-jump-6.png",
                     "duration": 0,
                     "keyframe": false
                 }
@@ -117,27 +138,6 @@
             "frameRate": 16,
             "skipMissedFrames": true,
             "repeat": -1,
-            "randomFrame": false
-        },
-        {
-            "key": "playerHurt",
-            "type": "frame",
-            "frames": [
-                {
-                    "key": "player-hurt",
-                    "frame": 0,
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "player-hurt",
-                    "frame": 1,
-                    "duration": 0,
-                    "keyframe": false
-                }
-            ],
-            "frameRate": 8,
-            "skipMissedFrames": true,
             "randomFrame": false
         }
     ],

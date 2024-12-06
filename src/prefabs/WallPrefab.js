@@ -6,17 +6,24 @@
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class LeftWallPrefab extends Phaser.GameObjects.TileSprite {
+export default class WallPrefab extends Phaser.GameObjects.TileSprite {
 
 	constructor(scene, x, y, width, height, texture, frame) {
-		super(scene, x ?? 0, y ?? 0, width ?? 16, height ?? 176, texture || "tilesets", frame ?? 232);
+		super(scene, x ?? 0, y ?? 0, width ?? 32, height ?? 176, texture || "wall", frame);
 
 		this.setOrigin(0, 0);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		/** @type {Phaser.Scene} */
+		const _scene = scene;
+		_scene.physics.world.enable(this);
+		this.body.setImmovable(true).setAllowGravity(false).setSize(16, this.height).setOffset(0, 0);
 		/* END-USER-CTR-CODE */
 	}
+
+	/** @type {number} */
+	tileOffsetY = 0;
 
 	/* START-USER-CODE */
 

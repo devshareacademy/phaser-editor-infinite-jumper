@@ -3,24 +3,31 @@
 
 /* START OF COMPILED CODE */
 
+import ScriptNode from "../../../phaserjs_editor_scripts_base/ScriptNode.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class RightWallPrefab extends Phaser.GameObjects.TileSprite {
+export default class StopSceneActionScript extends ScriptNode {
 
-	constructor(scene, x, y, width, height, texture, frame) {
-		super(scene, x ?? 0, y ?? 0, width ?? 16, height ?? 176, texture || "tilesets", frame ?? 229);
-
-		this.setOrigin(0, 0);
+	constructor(parent) {
+		super(parent);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
+	/** @type {string} */
+	sceneKey = "";
+
 	/* START-USER-CODE */
 
 	// Write your code here.
+	execute() {
+		/** @type {Phaser.Scene} */
+		const _scene = this.scene;
+		_scene.scene.stop(this.sceneKey);
+	}
 
 	/* END-USER-CODE */
 }

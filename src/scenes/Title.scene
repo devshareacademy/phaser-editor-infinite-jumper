@@ -41,35 +41,50 @@
                     "y": 0
                 },
                 {
-                    "prefabId": "59f4b105-9efc-4390-b584-1f1b790ce681",
-                    "id": "ea6c874d-f3b3-4cba-8029-851dc497e714",
+                    "prefabId": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
+                    "id": "ff1d4605-126e-44a0-bc2e-6e0df2647b13",
                     "unlock": [
                         "x",
                         "y"
                     ],
-                    "label": "rightWallPrefab",
-                    "x": 224,
+                    "label": "leftWall",
+                    "displayName": "Left Wall",
+                    "x": 0,
                     "y": 0
                 },
                 {
-                    "prefabId": "01991e20-2750-4b00-a97b-3998763c734a",
-                    "id": "9b5b841d-a3b1-4202-b654-acbce1da087c",
+                    "prefabId": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
+                    "id": "ea98fa60-30be-4b64-9030-47a699a80cdb",
                     "unlock": [
                         "x",
-                        "y"
+                        "y",
+                        "flipX",
+                        "flipY",
+                        "tilePositionX",
+                        "tilePositionY"
                     ],
-                    "label": "leftWallPrefab",
-                    "x": 0,
-                    "y": 0
+                    "label": "rightWall",
+                    "displayName": "Right Wall",
+                    "x": 208,
+                    "y": 0,
+                    "flipX": true,
+                    "flipY": false,
+                    "tilePositionX": 0,
+                    "tilePositionY": -120
+                },
+                {
+                    "type": "Image",
+                    "id": "6c96c1f8-0f86-4d64-96af-1a6d9d8e6782",
+                    "label": "ground",
+                    "displayName": "Ground",
+                    "texture": {
+                        "key": "ground"
+                    },
+                    "y": 144,
+                    "originX": 0,
+                    "originY": 0
                 }
             ]
-        },
-        {
-            "type": "EditableTilemapLayer",
-            "id": "de837e06-8a43-4d70-af22-d6ae9e5f0845",
-            "label": "groundLayer",
-            "y": 144,
-            "tilemapId": "c7d66947-190a-4c6e-8517-469e089d8734"
         },
         {
             "prefabId": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
@@ -118,41 +133,102 @@
             "fontSize": "8px",
             "color": "#59006eff",
             "stroke": "#000000"
-        }
-    ],
-    "plainObjects": [
+        },
         {
-            "id": "c7d66947-190a-4c6e-8517-469e089d8734",
-            "type": "EditableTilemap",
-            "label": "editabletilemap",
-            "width": 15,
-            "height": 2,
-            "tileWidth": 16,
-            "tileHeight": 16,
-            "tilesets": [
+            "prefabId": "7bf8a19d-1211-4b59-bb38-b034085b171f",
+            "id": "9992a354-7dc8-4264-940b-25f0cdc73434",
+            "label": "onAwakeActionScript",
+            "list": [
                 {
-                    "name": "tilesets",
-                    "imageKey": "tilesets",
-                    "tileWidth": 16,
-                    "tileHeight": 16,
-                    "tileMargin": 0,
-                    "tileSpacing": 0
+                    "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                    "id": "701f39dc-9753-4dc7-a1ce-8e5975489e03",
+                    "unlock": [
+                        "duration"
+                    ],
+                    "label": "fadeEffectCameraActionScript",
+                    "duration": 500
+                },
+                {
+                    "prefabId": "60f765a5-206f-4094-911b-c11367630985",
+                    "id": "50bada73-164d-42dd-95dd-7d635337fa5a",
+                    "unlock": [
+                        "target",
+                        "duration",
+                        "yoyo",
+                        "repeat",
+                        "delay",
+                        "loopDelay",
+                        "tweenProperty",
+                        "tweenPropertyValue"
+                    ],
+                    "label": "tweenActionScriptForPlayText",
+                    "displayName": "Tween Play Text",
+                    "scope": "CLASS",
+                    "target": "clickToPlayTextGameObject",
+                    "duration": 1200,
+                    "yoyo": true,
+                    "repeat": -1,
+                    "delay": 500,
+                    "loopDelay": 500,
+                    "tweenProperty": "alpha",
+                    "tweenPropertyValue": "0.2"
+                },
+                {
+                    "prefabId": "e8e75fbe-17a0-49df-ae3c-964d0ecbf8f9",
+                    "id": "cfcd89c1-38f3-40fd-8da7-3ed05ac8c3f7",
+                    "label": "sceneOnPointerDownActionScript",
+                    "displayName": "On Click -> Start Game",
+                    "list": [
+                        {
+                            "prefabId": "e29bc630-dabe-4a8c-97e0-45ccb875b877",
+                            "id": "2fa6c6aa-605a-4097-a24e-15e19fc1c02a",
+                            "unlock": [
+                                "callback"
+                            ],
+                            "label": "callbackActionScript",
+                            "callback": "() => { this.startGame(); }"
+                        }
+                    ]
                 }
+            ]
+        },
+        {
+            "prefabId": "34cde368-8bd4-4596-97fc-47c6825699b1",
+            "id": "7a60345a-5d94-49c2-87fb-b7bcbf9884ce",
+            "unlock": [
+                "delay"
             ],
-            "paintLayerId": "de837e06-8a43-4d70-af22-d6ae9e5f0845",
-            "paintTileset": "tilesets",
-            "layers": [
+            "label": "timeEventActionScriptForSceneTransition",
+            "displayName": "Start Next Scene Script",
+            "scope": "CLASS",
+            "delay": 1000,
+            "list": [
                 {
-                    "name": "groundLayer",
-                    "data": "[153,146,160,148,149,0,0,0,0,0,159,151,159,148,149,177,170,184,172,173,27,28,29,30,31,183,175,183,172,173]",
-                    "width": 15,
-                    "height": 2,
-                    "tileWidth": 16,
-                    "tileHeight": 16
+                    "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                    "id": "8b2e40c4-a4e2-4906-a9f1-2e2e82b3096a",
+                    "unlock": [
+                        "duration",
+                        "fadeEvent"
+                    ],
+                    "label": "fadeEffectCameraActionScript_1",
+                    "duration": 500,
+                    "fadeEvent": "camerafadeoutcomplete",
+                    "list": [
+                        {
+                            "prefabId": "6b1b396b-83fa-4b7a-8360-c7e156fc0f24",
+                            "id": "ad8da415-1e6d-4e5c-a830-cd5de8448696",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript",
+                            "sceneKey": "Level"
+                        }
+                    ]
                 }
             ]
         }
     ],
+    "plainObjects": [],
     "meta": {
         "app": "Phaser Editor - Scene Editor",
         "url": "https://phaser.io/editor",

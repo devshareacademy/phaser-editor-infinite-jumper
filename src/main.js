@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
 					x: 0,
 					y: 300
 				},
-				debug: false
+				debug: true
 			},
 			default: 'arcade'
 		}

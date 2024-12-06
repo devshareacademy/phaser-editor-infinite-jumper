@@ -3,15 +3,14 @@
 
 /* START OF COMPILED CODE */
 
+import ScriptNode from "../../../phaserjs_editor_scripts_base/ScriptNode.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class ForegroundPrefab extends Phaser.GameObjects.TileSprite {
+export default class OnAwakeActionScript extends ScriptNode {
 
-	constructor(scene, x, y, width, height, texture, frame) {
-		super(scene, x ?? 0, y ?? 0, width ?? 240, height ?? 176, texture || "middleground-no-fungus_1", frame);
-
-		this.setOrigin(0, 0);
+	constructor(parent) {
+		super(parent);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -21,6 +20,9 @@ export default class ForegroundPrefab extends Phaser.GameObjects.TileSprite {
 	/* START-USER-CODE */
 
 	// Write your code here.
+	awake() {
+		this.executeChildren();
+	}
 
 	/* END-USER-CODE */
 }

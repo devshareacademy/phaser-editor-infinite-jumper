@@ -5,10 +5,15 @@
 
 import BackgroundPrefab from "../prefabs/BackgroundPrefab.js";
 import ForegroundPrefab from "../prefabs/ForegroundPrefab.js";
-import RightWallPrefab from "../prefabs/RightWallPrefab.js";
-import LeftWallPrefab from "../prefabs/LeftWallPrefab.js";
+import WallPrefab from "../prefabs/WallPrefab.js";
 import PlayerPrefab from "../prefabs/PlayerPrefab.js";
 import PlatformGroupPrefab from "../prefabs/PlatformGroupPrefab.js";
+import TimeEventActionScript from "../scriptnodes/timer/TimeEventActionScript.js";
+import FadeEffectCameraActionScript from "../scriptnodes/camera/FadeEffectCameraActionScript.js";
+import StartSceneActionScript from "../scriptnodes/scene/StartSceneActionScript.js";
+import StopSceneActionScript from "../scriptnodes/scene/StopSceneActionScript.js";
+import OnAwakeActionScript from "../scriptnodes/utils/OnAwakeActionScript.js";
+import LaunchSceneActionScript from "../scriptnodes/scene/LaunchSceneActionScript.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -43,11 +48,13 @@ export default class Level extends Phaser.Scene {
 		levelLayer.add(foregroundTileSprite);
 
 		// rightWallTileSprite
-		const rightWallTileSprite = new RightWallPrefab(this, 224, 0);
+		const rightWallTileSprite = new WallPrefab(this, 208, 0);
+		rightWallTileSprite.flipX = true;
+		rightWallTileSprite.flipY = false;
 		levelLayer.add(rightWallTileSprite);
 
 		// leftWallTileSprite
-		const leftWallTileSprite = new LeftWallPrefab(this, 0, 0);
+		const leftWallTileSprite = new WallPrefab(this, 0, 0);
 		levelLayer.add(leftWallTileSprite);
 
 		// playerLayer
@@ -61,6 +68,24 @@ export default class Level extends Phaser.Scene {
 		const platformGroupPrefab = new PlatformGroupPrefab(this);
 		this.add.existing(platformGroupPrefab);
 
+		// timeEventActionScriptForSceneTransition
+		const timeEventActionScriptForSceneTransition = new TimeEventActionScript(this);
+
+		// fadeEffectCameraActionScript_1
+		const fadeEffectCameraActionScript_1 = new FadeEffectCameraActionScript(timeEventActionScriptForSceneTransition);
+
+		// startSceneActionScript
+		const startSceneActionScript = new StartSceneActionScript(fadeEffectCameraActionScript_1);
+
+		// stopSceneActionScript
+		const stopSceneActionScript = new StopSceneActionScript(fadeEffectCameraActionScript_1);
+
+		// onAwakeActionScript
+		const onAwakeActionScript = new OnAwakeActionScript(this);
+
+		// launchSceneActionScript
+		const launchSceneActionScript = new LaunchSceneActionScript(onAwakeActionScript);
+
 		// lists
 		const levelTileSprites = [leftWallTileSprite, rightWallTileSprite, foregroundTileSprite, backgroundTileSprite];
 		const walls = [leftWallTileSprite, rightWallTileSprite];
@@ -72,8 +97,28 @@ export default class Level extends Phaser.Scene {
 		// playerWithWallsCollider
 		this.physics.add.collider(player, walls);
 
+		// rightWallTileSprite (prefab fields)
+		rightWallTileSprite.tileOffsetY = -120;
+
+		// timeEventActionScriptForSceneTransition (prefab fields)
+		timeEventActionScriptForSceneTransition.delay = 1000;
+
+		// fadeEffectCameraActionScript_1 (prefab fields)
+		fadeEffectCameraActionScript_1.duration = 500;
+		fadeEffectCameraActionScript_1.fadeEvent = "camerafadeoutcomplete";
+
+		// startSceneActionScript (prefab fields)
+		startSceneActionScript.sceneKey = "GameOver";
+
+		// stopSceneActionScript (prefab fields)
+		stopSceneActionScript.sceneKey = "UI";
+
+		// launchSceneActionScript (prefab fields)
+		launchSceneActionScript.sceneKey = "UI";
+
 		this.player = player;
 		this.platformGroupPrefab = platformGroupPrefab;
+		this.timeEventActionScriptForSceneTransition = timeEventActionScriptForSceneTransition;
 		this.leftKeyboardKey = leftKeyboardKey;
 		this.rightKeyboardKey = rightKeyboardKey;
 		this.levelTileSprites = levelTileSprites;
@@ -87,15 +132,17 @@ export default class Level extends Phaser.Scene {
 	player;
 	/** @type {PlatformGroupPrefab} */
 	platformGroupPrefab;
+	/** @type {TimeEventActionScript} */
+	timeEventActionScriptForSceneTransition;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	leftKeyboardKey;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	rightKeyboardKey;
-	/** @type {Array<LeftWallPrefab|RightWallPrefab|ForegroundPrefab|BackgroundPrefab>} */
+	/** @type {Array<WallPrefab|ForegroundPrefab|BackgroundPrefab>} */
 	levelTileSprites;
-	/** @type {Array<LeftWallPrefab|RightWallPrefab>} */
+	/** @type {WallPrefab[]} */
 	walls;
-	/** @type {Array<LeftWallPrefab|RightWallPrefab|ForegroundPrefab>} */
+	/** @type {Array<WallPrefab|ForegroundPrefab>} */
 	movingLevelTileSprites;
 
 	/* START-USER-CODE */
@@ -128,7 +175,6 @@ export default class Level extends Phaser.Scene {
 		this.currentScore = 0;
 		this.startMaxHeight = 0;
 		this.maxHeight = 0;
-		this.scene.launch("UI");
 		this.player.play("playerSpin");
 		this.player.body.enable = true;
 		this.cameras.main.fadeIn(500, 0, 0, 0);
@@ -162,10 +208,18 @@ export default class Level extends Phaser.Scene {
 		}
 
 		this.movingLevelTileSprites.forEach((tileSprite) => {
-			tileSprite.tilePositionY = this.player.y * 0.2;
+			if (tileSprite.tileOffsetY !== undefined) {
+				tileSprite.tilePositionY = this.player.y * 0.2 + tileSprite.tileOffsetY;
+			} else {
+				tileSprite.tilePositionY = this.player.y * 0.2;
+			}
 		});
 		this.walls.forEach((tileSprite) => {
-			tileSprite.body.setOffset(0, this.cameras.main.worldView.y);
+			if (tileSprite.flipX)  {
+				tileSprite.body.setOffset(16, this.cameras.main.worldView.y);
+			} else {
+				tileSprite.body.setOffset(0, this.cameras.main.worldView.y);
+			}
 		});
 
 		if (!this.firstJumpMade) {
@@ -195,11 +249,8 @@ export default class Level extends Phaser.Scene {
 				duration: 3000,
 				onComplete: () => {
 					this.player.body.enable = false;
-					this.cameras.main.fadeOut(500, 0, 0, 0);
-					this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-						this.scene.stop("UI");
-						this.scene.start("GameOver", { score: this.currentScore });
-					});
+					this.registry.set('score', this.currentScore);
+					this.timeEventActionScriptForSceneTransition.execute();
 				},
 			});
 		}
