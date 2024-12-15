@@ -12,11 +12,11 @@ Coming soon...
 
 You can find a playable version of the game here: <a href="https://scottwestover.dev/games/infinite-jumper/index.html" target="_blank">Phaser 3 - Infinite Jumper</a>.
 
+![Gameplay](/docs/example.gif?raw=true 'Gameplay')
+
 ![Title](/docs/screenshot1.png?raw=true 'Title')
 
 ![Gameplay Screenshot](/docs/screenshot2.png?raw=true 'Gameplay Screenshot')
-
-![Gameplay](/docs/example.gif?raw=true 'Gameplay')
 
 ## Credits
 
