@@ -1,45 +1,35 @@
 {
-    "id": "da2b7804-9d4b-41a2-b29f-0c4df306ebc3",
+    "id": "81b535b3-c951-46e6-89cf-b1f6e9c150bf",
+    "sceneType": "PREFAB",
     "settings": {
-        "createMethodName": "",
-        "preloadMethodName": "",
-        "compilerOutputLanguage": "JAVA_SCRIPT",
         "exportClass": true,
         "autoImport": true,
         "importFileExtension": true,
-        "generateAwakeHandler": false,
-        "compilerInsertSpaces": false,
-        "compilerTabSize": 4,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
         "borderWidth": 240,
-        "borderHeight": 176,
-        "borderX": 0,
-        "borderY": 0
+        "borderHeight": 176
     },
-    "sceneType": "PREFAB",
     "displayList": [
         {
-            "unlock": [
-                "x",
-                "y"
-            ],
             "type": "TileSprite",
-            "id": "bd7103ea-1ca1-4935-97b1-8530a443b5a5",
-            "label": "foregroundTileSprite",
-            "displayName": "Foreground",
+            "id": "ca849cd9-6dd2-4c8e-a580-84503bfb9b94",
+            "label": "tilesprite_1",
             "texture": {
                 "key": "middleground-no-fungus"
             },
             "originX": 0,
             "originY": 0,
             "width": 240,
-            "height": 176,
-            "x": 0,
-            "y": 0
+            "height": 176
         }
     ],
+    "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
     }
 }

@@ -1,5 +1,5 @@
 {
-    "id": "a6b43f65-b944-4cc7-9ddc-2b1b60b41886",
+    "id": "5f770709-69b3-4d1e-a644-176cfede4438",
     "sceneType": "SCENE",
     "settings": {
         "exportClass": true,
@@ -14,7 +14,7 @@
     "displayList": [
         {
             "type": "Text",
-            "id": "5d276568-3f73-401a-a884-92ad0e39f008",
+            "id": "4dc4ae92-b973-47f4-a19c-61c0148d2a1c",
             "label": "gameOverTextGameObject",
             "displayName": "Game Over",
             "x": 30,
@@ -25,7 +25,7 @@
         },
         {
             "type": "Text",
-            "id": "4dcd3121-d614-47ca-8717-1b607044c5b0",
+            "id": "78642ef5-2054-4c6c-83e0-c7d69c8169ec",
             "label": "scoreTextGameObject",
             "displayName": "Score",
             "x": 95,
@@ -36,7 +36,7 @@
         },
         {
             "type": "Text",
-            "id": "099702d9-fc78-43f0-b513-6253d1099d21",
+            "id": "b17b13cd-e15d-4381-8e8c-b2dd8df36513",
             "label": "scoreValueTextGameObject",
             "displayName": "Score Value",
             "scope": "CLASS",
@@ -47,6 +47,57 @@
             "text": "0",
             "fontFamily": "PressStart2P-Regular",
             "fontSize": "10px"
+        },
+        {
+            "prefabId": "7bf8a19d-1211-4b59-bb38-b034085b171f",
+            "id": "1209fa5d-3661-4fce-b39f-15a70addbf09",
+            "label": "onAwakeActionScript",
+            "list": [
+                {
+                    "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                    "id": "0ce37553-2269-456e-a6ce-8cff49af0835",
+                    "unlock": [
+                        "duration",
+                        "fadeEvent"
+                    ],
+                    "label": "fadeEffectCameraActionScript",
+                    "duration": 500,
+                    "fadeEvent": "camerafadeincomplete"
+                },
+                {
+                    "prefabId": "34cde368-8bd4-4596-97fc-47c6825699b1",
+                    "id": "30177f41-2250-4d8e-b0c0-aa265663d4e8",
+                    "unlock": [
+                        "delay"
+                    ],
+                    "label": "timeEventActionScript",
+                    "delay": 3000,
+                    "list": [
+                        {
+                            "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                            "id": "b938c9a2-be58-441b-8992-69e94d705c8f",
+                            "unlock": [
+                                "duration",
+                                "fadeEvent"
+                            ],
+                            "label": "fadeEffectCameraActionScript_1",
+                            "duration": 500,
+                            "fadeEvent": "camerafadeoutcomplete",
+                            "list": [
+                                {
+                                    "prefabId": "6b1b396b-83fa-4b7a-8360-c7e156fc0f24",
+                                    "id": "bb642ad1-cb54-4ef2-98a1-5ff2edaaf13d",
+                                    "unlock": [
+                                        "sceneKey"
+                                    ],
+                                    "label": "startSceneActionScript",
+                                    "sceneKey": "Title"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],

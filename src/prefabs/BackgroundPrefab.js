@@ -15,6 +15,7 @@ export default class BackgroundPrefab extends Phaser.GameObjects.TileSprite {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.setScrollFactor(0);
 		/* END-USER-CTR-CODE */
 	}
 

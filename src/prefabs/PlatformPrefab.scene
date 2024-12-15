@@ -1,5 +1,5 @@
 {
-    "id": "37dcb52c-eec0-4cce-8228-4bcbb8788d23",
+    "id": "cb5a0414-995e-49a5-a1b8-066f1a8b8995",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,67 +8,26 @@
         "preloadMethodName": "",
         "preloadPackFiles": [],
         "createMethodName": "",
-        "borderWidth": 240,
-        "borderHeight": 176
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
-            "type": "Container",
-            "id": "cc2e01e3-1657-49e4-b79f-7d6ab686398e",
-            "label": "container_1",
+            "type": "ArcadeImage",
+            "id": "bc77ef0a-1f3b-40ae-92b5-0d3636f717a1",
+            "label": "arcadeimage_1",
+            "texture": {
+                "key": "platform"
+            },
             "scaleX": 0.75,
             "scaleY": 0.5,
-            "list": [
-                {
-                    "type": "Image",
-                    "id": "a7a7445d-ad4b-4eae-8295-7b0e29afa648",
-                    "label": "image_1",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 26
-                    }
-                },
-                {
-                    "type": "Image",
-                    "id": "244fcab8-f9ec-4eba-a02a-a9ff68e8ae50",
-                    "label": "image_2",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 27
-                    },
-                    "x": 16
-                },
-                {
-                    "type": "Image",
-                    "id": "c3b6af5a-fd60-4234-b1ec-1e83ec35f772",
-                    "label": "image",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 28
-                    },
-                    "x": 32
-                },
-                {
-                    "type": "Image",
-                    "id": "fa516efb-7746-4914-a923-c78775d4a6ca",
-                    "label": "image_3",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 29
-                    },
-                    "x": 48
-                },
-                {
-                    "type": "Image",
-                    "id": "be5a8bd4-dae0-45bc-b132-dd6837296374",
-                    "label": "image_4",
-                    "texture": {
-                        "key": "tilesets",
-                        "frame": 30
-                    },
-                    "x": 64
-                }
-            ]
+            "allowGravity": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "pushable": false,
+            "body.width": 80,
+            "body.height": 16
         }
     ],
     "plainObjects": [],

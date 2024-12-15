@@ -7,58 +7,30 @@
                 "key": "animations"
             },
             {
-                "url": "assets/level/background.png",
+                "url": "assets/background/background.png",
                 "type": "image",
                 "key": "background"
             },
             {
-                "url": "assets/level/middleground-no-fungus.png",
+                "url": "assets/other/ground.png",
+                "type": "image",
+                "key": "ground"
+            },
+            {
+                "url": "assets/background/middleground-no-fungus.png",
                 "type": "image",
                 "key": "middleground-no-fungus"
             },
             {
-                "url": "assets/player/player-duck.png",
+                "url": "assets/other/platform.png",
                 "type": "image",
-                "key": "player-duck"
+                "key": "platform"
             },
             {
-                "url": "assets/player/player-hurt.png",
-                "frameConfig": {
-                    "frameWidth": 80,
-                    "frameHeight": 80,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "player-hurt"
-            },
-            {
-                "url": "assets/player/player-idle.png",
-                "frameConfig": {
-                    "frameWidth": 80,
-                    "frameHeight": 80,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "player-idle"
-            },
-            {
-                "url": "assets/player/player-jump.png",
-                "frameConfig": {
-                    "frameWidth": 80,
-                    "frameHeight": 80,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "player-jump"
+                "atlasURL": "assets/player/player.json",
+                "textureURL": "assets/player/player.png",
+                "type": "atlas",
+                "key": "player"
             },
             {
                 "url": "assets/font/PressStart2P-Regular.ttf",
@@ -68,17 +40,9 @@
                 "key": "PressStart2P-Regular"
             },
             {
-                "url": "assets/level/tilesets.png",
-                "frameConfig": {
-                    "frameWidth": 16,
-                    "frameHeight": 16,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "tilesets"
+                "url": "assets/other/wall.png",
+                "type": "image",
+                "key": "wall"
             }
         ]
     },

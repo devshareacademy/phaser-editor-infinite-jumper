@@ -14,48 +14,34 @@
     "displayList": [
         {
             "type": "Layer",
-            "id": "cc921894-358f-4b9f-8f1e-53bfac6a0854",
+            "id": "bac5d334-c135-4082-9b39-b618cd0c95f5",
             "label": "levelLayer",
             "list": [
                 {
-                    "prefabId": "920a9e20-3da9-4ce9-92d1-bedf85c75088",
-                    "id": "25766698-bd70-4b92-a3ee-8af36d2d2515",
+                    "prefabId": "99ac54b1-d5f6-4dde-83e9-6287f87a3e61",
+                    "id": "44bc0261-c2db-486e-bb2e-f15fd2886690",
                     "unlock": [
                         "x",
                         "y"
                     ],
-                    "label": "backgroundTileSprite",
-                    "displayName": "Background",
+                    "label": "backgroundPrefab",
                     "x": 0,
                     "y": 0
                 },
                 {
-                    "prefabId": "da2b7804-9d4b-41a2-b29f-0c4df306ebc3",
-                    "id": "2a89ed8d-b6c9-41cb-bd73-8f15f7fd3602",
+                    "prefabId": "81b535b3-c951-46e6-89cf-b1f6e9c150bf",
+                    "id": "c3029549-678e-4e70-888a-e9c2796a9ff8",
                     "unlock": [
                         "x",
                         "y"
                     ],
-                    "label": "foregroundTileSprite",
-                    "displayName": "Foreground",
+                    "label": "foregroundPrefab",
                     "x": 0,
                     "y": 0
                 },
                 {
-                    "prefabId": "59f4b105-9efc-4390-b584-1f1b790ce681",
-                    "id": "4be7780a-91f0-4c1c-9093-08003cc1a293",
-                    "unlock": [
-                        "x",
-                        "y"
-                    ],
-                    "label": "rightWallTileSprite",
-                    "displayName": "Right Wall",
-                    "x": 224,
-                    "y": 0
-                },
-                {
-                    "prefabId": "01991e20-2750-4b00-a97b-3998763c734a",
-                    "id": "4c5ff9ea-4af6-4196-9db3-649669099488",
+                    "prefabId": "67c9cbfd-360b-49ee-90ff-126eb15c8a97",
+                    "id": "088082c2-fc0f-48eb-b6b7-d7afac8af18a",
                     "unlock": [
                         "x",
                         "y"
@@ -64,41 +50,126 @@
                     "displayName": "Left Wall",
                     "x": 0,
                     "y": 0
+                },
+                {
+                    "prefabId": "67c9cbfd-360b-49ee-90ff-126eb15c8a97",
+                    "id": "c747660b-a2dc-4e56-a70e-9ec8a60ef056",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "flipX",
+                        "flipY",
+                        "tileOffsetY"
+                    ],
+                    "label": "rightWallTileSprite",
+                    "displayName": "Right Wall",
+                    "tileOffsetY": -120,
+                    "x": 208,
+                    "y": 0,
+                    "flipX": true,
+                    "flipY": false
                 }
             ]
         },
         {
             "type": "Layer",
-            "id": "16146acd-2a9f-443a-8d15-ed90d87b0e11",
+            "id": "d5da7a22-caae-4b84-ad6d-09812b8d9680",
             "label": "playerLayer",
             "list": [
                 {
-                    "prefabId": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
-                    "id": "537e9a0f-2d45-4a90-af67-05181484bb7f",
+                    "prefabId": "3e270050-876c-44b2-be37-fa25e56143ae",
+                    "id": "88b94eeb-2e28-4876-90d8-75a58da85980",
                     "unlock": [
                         "x",
-                        "y",
-                        "animationKey"
+                        "y"
                     ],
                     "label": "player",
                     "displayName": "Player",
                     "scope": "CLASS",
                     "x": 120,
-                    "y": -84,
-                    "animationKey": "playerSpin"
+                    "y": -84
                 }
             ]
         },
         {
-            "prefabId": "2ccf41e3-e49c-4424-a68d-36cc50509d75",
-            "id": "2b469068-76ea-4f82-8590-854f473f2113",
+            "prefabId": "3a016394-0b07-4002-b58b-fb7cd0757d52",
+            "id": "61e12a5d-01e0-4e71-b249-7a88a2601048",
             "label": "platformGroupPrefab",
             "scope": "CLASS"
+        },
+        {
+            "prefabId": "7bf8a19d-1211-4b59-bb38-b034085b171f",
+            "id": "f1e8a942-5d38-4557-a6f1-686be69055ec",
+            "label": "onAwakeActionScript",
+            "list": [
+                {
+                    "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                    "id": "126bcfaa-fc61-4545-a107-97a41d33dae3",
+                    "unlock": [
+                        "duration",
+                        "fadeEvent"
+                    ],
+                    "label": "fadeEffectCameraActionScript_1",
+                    "duration": 500,
+                    "fadeEvent": "camerafadeincomplete",
+                    "list": [
+                        {
+                            "prefabId": "0ed1159f-ee3d-4ce9-82da-e76768c045b5",
+                            "id": "89e8a050-cdbf-41f8-a11b-9406fb69ae23",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "launchSceneActionScript",
+                            "sceneKey": "UI"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "prefabId": "34cde368-8bd4-4596-97fc-47c6825699b1",
+            "id": "ae7af9fb-32c6-424f-a999-47c5e8f6dfdc",
+            "label": "timeEventActionScriptForSceneTransition",
+            "displayName": "Start Next Scene Script",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
+                    "id": "d24f1710-03af-42af-8fc6-699b511b5b07",
+                    "unlock": [
+                        "duration",
+                        "fadeEvent"
+                    ],
+                    "label": "fadeEffectCameraActionScript",
+                    "duration": 500,
+                    "fadeEvent": "camerafadeoutcomplete",
+                    "list": [
+                        {
+                            "prefabId": "6b1b396b-83fa-4b7a-8360-c7e156fc0f24",
+                            "id": "58a4efb5-036c-4406-936e-2fc75c13ccd8",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript",
+                            "sceneKey": "GameOver"
+                        }
+                    ]
+                },
+                {
+                    "prefabId": "884f45d6-b90f-4905-a987-3e9bed69c26e",
+                    "id": "0028cb74-717e-40af-9c18-dbc97dc74bcb",
+                    "unlock": [
+                        "sceneKey"
+                    ],
+                    "label": "stopSceneActionScript",
+                    "sceneKey": "UI"
+                }
+            ]
         }
     ],
     "plainObjects": [
         {
-            "id": "a4a6aa24-caa7-42d2-adee-43a822a1e36f",
+            "id": "aae6f64a-7ec5-4059-b5b5-9468fd783898",
             "type": "Collider",
             "label": "playerWithPlatformsCollider",
             "scope": "LOCAL",
@@ -106,21 +177,21 @@
             "object2": "platformGroupPrefab.group"
         },
         {
-            "id": "cbfb2f7b-67fb-4cff-9a2f-b780ade4d55d",
+            "id": "1b2115b4-f3f1-49f6-8a62-ab4a6f24d65b",
             "type": "Keyboard.Key",
             "label": "leftKeyboardKey",
             "keyCode": "LEFT"
         },
         {
-            "id": "d121258a-fc23-4941-9487-b21aea1a1576",
+            "id": "1e841c76-2914-4e3b-b5d7-176b7b2e7d29",
             "type": "Keyboard.Key",
             "label": "rightKeyboardKey",
             "keyCode": "RIGHT"
         },
         {
-            "id": "5bb29eaf-8cba-4748-a619-e5e30c14fb4f",
+            "id": "7ddcaf3a-f05b-40bd-87fa-4ff62e7515d9",
             "type": "Collider",
-            "label": "playerWithWallsCollider",
+            "label": "playerWIthWallsCollider",
             "scope": "LOCAL",
             "object1": "player",
             "object2": "walls"
@@ -134,36 +205,20 @@
     },
     "lists": [
         {
-            "id": "cb26fc42-f9fb-4d3e-b8a6-f4dca63f6dab",
-            "label": "levelTileSprites",
-            "objectIds": [
-                "b1b2f8ce-eea8-4a73-83e7-649ffb997ed5",
-                "68703fb0-933e-478f-a156-f115c7d95cba",
-                "13a4cd3f-ae24-4187-8b75-c1e20ca03adf",
-                "f47418b9-7504-44c5-92e1-37618391a5ae",
-                "4c5ff9ea-4af6-4196-9db3-649669099488",
-                "4be7780a-91f0-4c1c-9093-08003cc1a293",
-                "2a89ed8d-b6c9-41cb-bd73-8f15f7fd3602",
-                "25766698-bd70-4b92-a3ee-8af36d2d2515"
-            ]
-        },
-        {
-            "id": "d1da4d45-c019-4dc0-bdb3-54c10cc52872",
-            "label": "walls",
-            "objectIds": [
-                "b1b2f8ce-eea8-4a73-83e7-649ffb997ed5",
-                "68703fb0-933e-478f-a156-f115c7d95cba",
-                "4c5ff9ea-4af6-4196-9db3-649669099488",
-                "4be7780a-91f0-4c1c-9093-08003cc1a293"
-            ]
-        },
-        {
-            "id": "b1922af6-8168-4b48-a75d-240636e73597",
+            "id": "ce20c90b-f32f-48da-a539-a98501d24167",
             "label": "movingLevelTileSprites",
             "objectIds": [
-                "4c5ff9ea-4af6-4196-9db3-649669099488",
-                "4be7780a-91f0-4c1c-9093-08003cc1a293",
-                "2a89ed8d-b6c9-41cb-bd73-8f15f7fd3602"
+                "c747660b-a2dc-4e56-a70e-9ec8a60ef056",
+                "088082c2-fc0f-48eb-b6b7-d7afac8af18a",
+                "c3029549-678e-4e70-888a-e9c2796a9ff8"
+            ]
+        },
+        {
+            "id": "02432ce8-b97c-430b-89fd-44441f7f75d1",
+            "label": "walls",
+            "objectIds": [
+                "088082c2-fc0f-48eb-b6b7-d7afac8af18a",
+                "c747660b-a2dc-4e56-a70e-9ec8a60ef056"
             ]
         }
     ]

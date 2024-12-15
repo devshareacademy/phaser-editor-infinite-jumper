@@ -1,0 +1,47 @@
+{
+    "id": "67c9cbfd-360b-49ee-90ff-126eb15c8a97",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 240,
+        "borderHeight": 176
+    },
+    "displayList": [
+        {
+            "type": "TileSprite",
+            "id": "ec13155e-d35a-46fd-8859-77aa4d4d43b6",
+            "label": "tilesprite_1",
+            "texture": {
+                "key": "wall"
+            },
+            "originX": 0,
+            "originY": 0,
+            "width": 32,
+            "height": 176
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "tileOffsetY",
+            "label": "Tile Offset Y",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

@@ -14,46 +14,70 @@ export default class PlatformGroupPrefab extends Phaser.GameObjects.Layer {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.group = scene.add.group({
-			classType: PlatformPrefab
+		/** @type {Phaser.Scene} */
+		const _scene = scene;
+		this.group = _scene.add.group({
+			classType: PlatformPrefab,
+			runChildUpdate: true,
 		});
 
-		// create initial platform for the start of the game
-		this.group.get(90, 0);
+		this.group.get(120, 0);
 
-		// create next set of platforms
 		for (let i = 1; i < 5; i += 1) {
 			const x = Phaser.Math.Between(10, 200);
 			const y = -150 * i;
-
 			this.group.get(x, y);
 		}
+
+		this.maxPlatformDistance = scene.scale.height * 3;
+		this.bottomMostPlatformYPosition = 0;
 		/* END-USER-CTR-CODE */
 	}
 
 	/* START-USER-CODE */
-
-	// Write your code here.
 	/** @type {Phaser.GameObjects.Group} */
 	group;
 	/** @type {number} */
-	bottomMostPlatformYPosition = 0;
+	maxPlatformDistance;
+	/** @type {number} */
+	bottomMostPlatformYPosition;
+	/** @type {boolean} */
+	enableMovingPlatforms = false;
+
+	// Write your code here.
 
 	update() {
 		const scrollY = this.scene.cameras.main.scrollY;
-		const maxDist = this.scene.scale.height * 3;
 		const children = this.group.getChildren();
+		const childrenToMove = [];
 		this.bottomMostPlatformYPosition = children[0].y;
+
 		children.forEach((child) => {
-			if (child.y >= scrollY + maxDist) {
-				child.x = Phaser.Math.Between(10, 200);
-				child.y = scrollY - Phaser.Math.Between(10, 40);
+			if (child.y >= scrollY + this.maxPlatformDistance) {
+				childrenToMove.push(child);
 			}
 			if (child.y > this.bottomMostPlatformYPosition) {
 				this.bottomMostPlatformYPosition = child.y;
 			}
 		});
+
+		let childrenToMoveYOffset = 0;
+		childrenToMove.forEach((child) => {
+			child.x = Phaser.Math.Between(10, 200);
+			childrenToMoveYOffset += Phaser.Math.Between(10, 40)
+			child.y = scrollY - childrenToMoveYOffset;
+
+			if (this.enableMovingPlatforms) {
+				if (Phaser.Math.RND.between(0, 1) === 1) {
+					child.startPlatformMovement();
+				} else {
+					child.stopPlatformMovement();
+				}
+			}
+		});
+
 	}
+
 	/* END-USER-CODE */
 }
 

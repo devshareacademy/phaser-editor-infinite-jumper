@@ -1,38 +1,25 @@
 {
-    "id": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
+    "id": "3e270050-876c-44b2-be37-fa25e56143ae",
+    "sceneType": "PREFAB",
     "settings": {
-        "createMethodName": "",
-        "preloadMethodName": "",
-        "compilerOutputLanguage": "JAVA_SCRIPT",
         "exportClass": true,
         "autoImport": true,
         "importFileExtension": true,
-        "generateAwakeHandler": false,
-        "compilerInsertSpaces": false,
-        "compilerTabSize": 4,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
         "borderWidth": 240,
-        "borderHeight": 176,
-        "borderX": 0,
-        "borderY": 0
+        "borderHeight": 176
     },
-    "sceneType": "PREFAB",
     "displayList": [
         {
-            "unlock": [
-                "x",
-                "y"
-            ],
             "type": "ArcadeSprite",
-            "id": "86101c20-9b01-4e6e-b897-888662542bbe",
-            "label": "player",
-            "displayName": "Player",
-            "scope": "CLASS",
+            "id": "b4b91bc4-2950-4d35-915c-2a9218e01f6a",
+            "label": "arcadesprite_1",
             "texture": {
-                "key": "player-idle",
-                "frame": 0
+                "key": "player",
+                "frame": "player-idle-1.png"
             },
-            "x": 0,
-            "y": 0,
             "animationPlayMethod": 1,
             "animationKey": "playerIdle",
             "up": false,
@@ -42,9 +29,11 @@
             "body.offset.y": 20
         }
     ],
+    "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
     }
 }
