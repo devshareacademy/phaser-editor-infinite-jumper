@@ -80,27 +80,6 @@
             "randomFrame": false
         },
         {
-            "key": "playerHurt",
-            "type": "frame",
-            "frames": [
-                {
-                    "key": "player",
-                    "frame": "player-hurt-1.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "player",
-                    "frame": "player-hurt-2.png",
-                    "duration": 0,
-                    "keyframe": false
-                }
-            ],
-            "frameRate": 8,
-            "skipMissedFrames": true,
-            "randomFrame": false
-        },
-        {
             "key": "playerSpin",
             "type": "frame",
             "frames": [
@@ -138,6 +117,27 @@
             "frameRate": 16,
             "skipMissedFrames": true,
             "repeat": -1,
+            "randomFrame": false
+        },
+        {
+            "key": "playerHurt",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "player",
+                    "frame": "player-hurt-1.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "player",
+                    "frame": "player-hurt-2.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 8,
+            "skipMissedFrames": true,
             "randomFrame": false
         }
     ],

@@ -1,10 +1,11 @@
 import Level from "./scenes/Level.js";
 import Preload from "./scenes/Preload.js";
 import UI from "./scenes/UI.js";
-import Title from "./scenes/Title.js";
 import GameOver from "./scenes/GameOver.js";
+import Title from "./scenes/Title.js";
 
 window.addEventListener('load', function () {
+
 	var game = new Phaser.Game({
 		width: 240,
 		height: 176,
@@ -15,22 +16,21 @@ window.addEventListener('load', function () {
 			autoCenter: Phaser.Scale.CENTER_BOTH
 		},
 		pixelArt: true,
-		roundPixels: false,
 		physics: {
+			default: 'arcade',
 			arcade: {
 				gravity: {
 					x: 0,
 					y: 300
 				},
 				debug: false
-			},
-			default: 'arcade'
+			}
 		}
 	});
 
-	game.scene.add("Preload", Preload, true);
-	game.scene.add("Title", Title);
 	game.scene.add("Level", Level);
 	game.scene.add("UI", UI);
 	game.scene.add("GameOver", GameOver);
+	game.scene.add("Title", Title);
+	game.scene.add("Preload", Preload, true);
 });

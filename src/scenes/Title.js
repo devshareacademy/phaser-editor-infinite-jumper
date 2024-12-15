@@ -30,42 +30,45 @@ export default class Title extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// backgroundLayer
-		const backgroundLayer = this.add.layer();
+		// levelLayer
+		const levelLayer = this.add.layer();
 
 		// backgroundPrefab
 		const backgroundPrefab = new BackgroundPrefab(this, 0, 0);
-		backgroundLayer.add(backgroundPrefab);
+		levelLayer.add(backgroundPrefab);
 
 		// foregroundPrefab
 		const foregroundPrefab = new ForegroundPrefab(this, 0, 0);
-		backgroundLayer.add(foregroundPrefab);
+		levelLayer.add(foregroundPrefab);
 
-		// leftWall
-		const leftWall = new WallPrefab(this, 0, 0);
-		backgroundLayer.add(leftWall);
+		// leftWallTileSprite
+		const leftWallTileSprite = new WallPrefab(this, 0, 0);
+		levelLayer.add(leftWallTileSprite);
 
-		// rightWall
-		const rightWall = new WallPrefab(this, 208, 0);
-		rightWall.flipX = true;
-		rightWall.flipY = false;
-		rightWall.tilePositionX = 0;
-		rightWall.tilePositionY = -120;
-		backgroundLayer.add(rightWall);
+		// rightWallTileSprite
+		const rightWallTileSprite = new WallPrefab(this, 208, 0);
+		rightWallTileSprite.flipX = true;
+		rightWallTileSprite.flipY = false;
+		rightWallTileSprite.tilePositionX = 0;
+		rightWallTileSprite.tilePositionY = -120;
+		levelLayer.add(rightWallTileSprite);
 
 		// ground
 		const ground = this.add.image(0, 144, "ground");
 		ground.setOrigin(0, 0);
-		backgroundLayer.add(ground);
+		levelLayer.add(ground);
+
+		// playerLayer
+		const playerLayer = this.add.layer();
 
 		// player
 		const player = new PlayerPrefab(this, 120, 136);
-		this.add.existing(player);
+		playerLayer.add(player);
 
 		// titleTextGameObject
 		const titleTextGameObject = this.add.text(32, 15, "", {});
 		titleTextGameObject.text = "Warped Cave\nEscape";
-		titleTextGameObject.setStyle({ "align": "center", "color": "#00ace1ff", "fontFamily": "PressStart2P-Regular", "stroke": "#00ffff", "shadow.offsetX": 3, "shadow.offsetY": 1, "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		titleTextGameObject.setStyle({ "align": "center", "color": "#00ace1ff", "fontFamily": "PressStart2P-Regular", "stroke": "#00ffff", "shadow.offsetX": 3, "shadow.offsetY": 1, "shadow.stroke": true, "shadow.fill": true });
 		titleTextGameObject.setLineSpacing(3);
 
 		// clickToPlayTextGameObject
@@ -79,8 +82,8 @@ export default class Title extends Phaser.Scene {
 		// fadeEffectCameraActionScript
 		const fadeEffectCameraActionScript = new FadeEffectCameraActionScript(onAwakeActionScript);
 
-		// tweenActionScriptForPlayText
-		const tweenActionScriptForPlayText = new TweenActionScript(onAwakeActionScript);
+		// tweenActionScript
+		const tweenActionScript = new TweenActionScript(onAwakeActionScript);
 
 		// sceneOnPointerDownActionScript
 		const sceneOnPointerDownActionScript = new SceneOnPointerDownActionScript(onAwakeActionScript);
@@ -97,24 +100,28 @@ export default class Title extends Phaser.Scene {
 		// startSceneActionScript
 		const startSceneActionScript = new StartSceneActionScript(fadeEffectCameraActionScript_1);
 
+		// rightWallTileSprite (prefab fields)
+		rightWallTileSprite.tileOffsetY = -120;
+
 		// fadeEffectCameraActionScript (prefab fields)
 		fadeEffectCameraActionScript.duration = 500;
+		fadeEffectCameraActionScript.fadeEvent = "camerafadeincomplete";
 
-		// tweenActionScriptForPlayText (prefab fields)
-		tweenActionScriptForPlayText.target = clickToPlayTextGameObject;
-		tweenActionScriptForPlayText.duration = 1200;
-		tweenActionScriptForPlayText.yoyo = true;
-		tweenActionScriptForPlayText.repeat = -1;
-		tweenActionScriptForPlayText.delay = 500;
-		tweenActionScriptForPlayText.loopDelay = 500;
-		tweenActionScriptForPlayText.tweenProperty = "alpha";
-		tweenActionScriptForPlayText.tweenPropertyValue = 0.2;
+		// tweenActionScript (prefab fields)
+		tweenActionScript.target = clickToPlayTextGameObject;
+		tweenActionScript.duration = 1200;
+		tweenActionScript.yoyo = true;
+		tweenActionScript.repeat = -1;
+		tweenActionScript.delay = 500;
+		tweenActionScript.loopDelay = 500;
+		tweenActionScript.tweenProperty = "alpha";
+		tweenActionScript.tweenPropertyValue = 0.2;
+
+		// sceneOnPointerDownActionScript (prefab fields)
+		sceneOnPointerDownActionScript.once = true;
 
 		// callbackActionScript (prefab fields)
 		callbackActionScript.callback = () => { this.startGame(); };
-
-		// timeEventActionScriptForSceneTransition (prefab fields)
-		timeEventActionScriptForSceneTransition.delay = 1000;
 
 		// fadeEffectCameraActionScript_1 (prefab fields)
 		fadeEffectCameraActionScript_1.duration = 500;
@@ -124,8 +131,6 @@ export default class Title extends Phaser.Scene {
 		startSceneActionScript.sceneKey = "Level";
 
 		this.player = player;
-		this.clickToPlayTextGameObject = clickToPlayTextGameObject;
-		this.tweenActionScriptForPlayText = tweenActionScriptForPlayText;
 		this.timeEventActionScriptForSceneTransition = timeEventActionScriptForSceneTransition;
 
 		this.events.emit("scene-awake");
@@ -133,20 +138,16 @@ export default class Title extends Phaser.Scene {
 
 	/** @type {PlayerPrefab} */
 	player;
-	/** @type {Phaser.GameObjects.Text} */
-	clickToPlayTextGameObject;
-	/** @type {TweenActionScript} */
-	tweenActionScriptForPlayText;
 	/** @type {TimeEventActionScript} */
 	timeEventActionScriptForSceneTransition;
 
 	/* START-USER-CODE */
 
 	// Write your code here
-	/** @type {Phaser.Tweens.Tween} */
 	glowTween;
 
 	create() {
+
 		this.editorCreate();
 		this.player.body.enable = false;
 		const glowFx = this.player.postFX.addGlow(0x00ffff, 1, 0, false, 0.1, 5);
@@ -166,12 +167,8 @@ export default class Title extends Phaser.Scene {
 			this.player.play("playerIdle");
 			this.glowTween.destroy();
 			this.player.postFX.clear();
-
-			// enable player physics after game starts
 			this.player.body.enable = true;
 			this.player.body.velocity.y = -1000;
-
-			// trigger next scene
 			this.timeEventActionScriptForSceneTransition.execute();
 		});
 	}

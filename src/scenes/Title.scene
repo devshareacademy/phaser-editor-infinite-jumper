@@ -1,5 +1,5 @@
 {
-    "id": "019d4538-472f-420d-b527-49aecd1571b9",
+    "id": "9f12fda7-7627-446d-a7a5-9c4abf8d5ed0",
     "sceneType": "SCENE",
     "settings": {
         "exportClass": true,
@@ -14,13 +14,12 @@
     "displayList": [
         {
             "type": "Layer",
-            "id": "09e32ef3-b2f7-4188-b43a-26c4e54c9a04",
-            "label": "backgroundLayer",
-            "displayName": "Background Layer",
+            "id": "ae00da8f-7fec-42ff-9bbc-a97825fc8310",
+            "label": "levelLayer",
             "list": [
                 {
-                    "prefabId": "920a9e20-3da9-4ce9-92d1-bedf85c75088",
-                    "id": "0a08e4b0-5664-4eeb-8285-446a0067b6a2",
+                    "prefabId": "99ac54b1-d5f6-4dde-83e9-6287f87a3e61",
+                    "id": "e503391f-0b1f-4070-a507-c8f8ba7e7524",
                     "unlock": [
                         "x",
                         "y"
@@ -30,8 +29,8 @@
                     "y": 0
                 },
                 {
-                    "prefabId": "da2b7804-9d4b-41a2-b29f-0c4df306ebc3",
-                    "id": "31765d29-f495-477d-a84c-02ae77087bf3",
+                    "prefabId": "81b535b3-c951-46e6-89cf-b1f6e9c150bf",
+                    "id": "1466a0e2-169f-40b0-9d70-c4194fd5643d",
                     "unlock": [
                         "x",
                         "y"
@@ -41,30 +40,32 @@
                     "y": 0
                 },
                 {
-                    "prefabId": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
-                    "id": "ff1d4605-126e-44a0-bc2e-6e0df2647b13",
+                    "prefabId": "67c9cbfd-360b-49ee-90ff-126eb15c8a97",
+                    "id": "6142fed8-1560-4af3-bb20-bf0ec359e0f4",
                     "unlock": [
                         "x",
                         "y"
                     ],
-                    "label": "leftWall",
+                    "label": "leftWallTileSprite",
                     "displayName": "Left Wall",
                     "x": 0,
                     "y": 0
                 },
                 {
-                    "prefabId": "fefd1ef2-a15e-4c08-9796-ce8501f6684e",
-                    "id": "ea98fa60-30be-4b64-9030-47a699a80cdb",
+                    "prefabId": "67c9cbfd-360b-49ee-90ff-126eb15c8a97",
+                    "id": "620e07cd-e63c-4a39-b78b-6a6df41ec6c2",
                     "unlock": [
                         "x",
                         "y",
                         "flipX",
                         "flipY",
+                        "tileOffsetY",
                         "tilePositionX",
                         "tilePositionY"
                     ],
-                    "label": "rightWall",
+                    "label": "rightWallTileSprite",
                     "displayName": "Right Wall",
+                    "tileOffsetY": -120,
                     "x": 208,
                     "y": 0,
                     "flipX": true,
@@ -74,9 +75,8 @@
                 },
                 {
                     "type": "Image",
-                    "id": "6c96c1f8-0f86-4d64-96af-1a6d9d8e6782",
+                    "id": "7da52578-97f4-49e0-8e18-74baecd97c68",
                     "label": "ground",
-                    "displayName": "Ground",
                     "texture": {
                         "key": "ground"
                     },
@@ -87,23 +87,28 @@
             ]
         },
         {
-            "prefabId": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
-            "id": "f2589a88-3bef-4031-8024-6c63e8317cbb",
-            "unlock": [
-                "x",
-                "y",
-                "animationKey"
-            ],
-            "label": "player",
-            "displayName": "Player",
-            "scope": "CLASS",
-            "x": 120,
-            "y": 136,
-            "animationKey": "playerIdle"
+            "type": "Layer",
+            "id": "ad76e522-cc63-4112-a937-99a4275aaf39",
+            "label": "playerLayer",
+            "list": [
+                {
+                    "prefabId": "3e270050-876c-44b2-be37-fa25e56143ae",
+                    "id": "2cb3fbfb-7d82-466d-9257-daea52a80c86",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "player",
+                    "displayName": "Player",
+                    "scope": "CLASS",
+                    "x": 120,
+                    "y": 136
+                }
+            ]
         },
         {
             "type": "Text",
-            "id": "c848e72f-af96-4171-8dc1-618ffa9b596c",
+            "id": "5eddfe48-c25b-45a3-bb95-7e7cd0c153e3",
             "label": "titleTextGameObject",
             "displayName": "Title Text",
             "x": 32,
@@ -117,15 +122,13 @@
             "shadow.offsetX": 3,
             "shadow.offsetY": 1,
             "shadow.stroke": true,
-            "shadow.fill": true,
-            "shadow.blur": 2
+            "shadow.fill": true
         },
         {
             "type": "Text",
-            "id": "38ae6950-25de-46a8-80a5-2072d1b7895c",
+            "id": "af924339-c042-492f-a705-3d1a35083591",
             "label": "clickToPlayTextGameObject",
             "displayName": "Click To Play",
-            "scope": "CLASS",
             "x": 68,
             "y": 81,
             "text": "Click to Play",
@@ -136,21 +139,23 @@
         },
         {
             "prefabId": "7bf8a19d-1211-4b59-bb38-b034085b171f",
-            "id": "9992a354-7dc8-4264-940b-25f0cdc73434",
+            "id": "8e4ea6e9-4d1f-4888-946a-bd4f4c00ff32",
             "label": "onAwakeActionScript",
             "list": [
                 {
                     "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
-                    "id": "701f39dc-9753-4dc7-a1ce-8e5975489e03",
+                    "id": "2d6c5716-0f6a-46ef-bee9-7690d2602c6f",
                     "unlock": [
-                        "duration"
+                        "duration",
+                        "fadeEvent"
                     ],
                     "label": "fadeEffectCameraActionScript",
-                    "duration": 500
+                    "duration": 500,
+                    "fadeEvent": "camerafadeincomplete"
                 },
                 {
                     "prefabId": "60f765a5-206f-4094-911b-c11367630985",
-                    "id": "50bada73-164d-42dd-95dd-7d635337fa5a",
+                    "id": "c734e248-3144-4c97-be24-f6a37f431881",
                     "unlock": [
                         "target",
                         "duration",
@@ -161,9 +166,7 @@
                         "tweenProperty",
                         "tweenPropertyValue"
                     ],
-                    "label": "tweenActionScriptForPlayText",
-                    "displayName": "Tween Play Text",
-                    "scope": "CLASS",
+                    "label": "tweenActionScript",
                     "target": "clickToPlayTextGameObject",
                     "duration": 1200,
                     "yoyo": true,
@@ -175,13 +178,16 @@
                 },
                 {
                     "prefabId": "e8e75fbe-17a0-49df-ae3c-964d0ecbf8f9",
-                    "id": "cfcd89c1-38f3-40fd-8da7-3ed05ac8c3f7",
+                    "id": "008b89b2-7442-4cd3-a00d-c38c1a9b85ca",
+                    "unlock": [
+                        "once"
+                    ],
                     "label": "sceneOnPointerDownActionScript",
-                    "displayName": "On Click -> Start Game",
+                    "once": true,
                     "list": [
                         {
                             "prefabId": "e29bc630-dabe-4a8c-97e0-45ccb875b877",
-                            "id": "2fa6c6aa-605a-4097-a24e-15e19fc1c02a",
+                            "id": "da3718b9-bb10-40f2-ad74-4277bf5bad2d",
                             "unlock": [
                                 "callback"
                             ],
@@ -194,18 +200,14 @@
         },
         {
             "prefabId": "34cde368-8bd4-4596-97fc-47c6825699b1",
-            "id": "7a60345a-5d94-49c2-87fb-b7bcbf9884ce",
-            "unlock": [
-                "delay"
-            ],
+            "id": "61553551-4ae9-4b2c-9ac8-e040121af0fa",
             "label": "timeEventActionScriptForSceneTransition",
             "displayName": "Start Next Scene Script",
             "scope": "CLASS",
-            "delay": 1000,
             "list": [
                 {
                     "prefabId": "26d6c86f-1f9a-4dc9-9d2e-f64a7fbbbb28",
-                    "id": "8b2e40c4-a4e2-4906-a9f1-2e2e82b3096a",
+                    "id": "9715bd02-247b-4b9b-8745-233ea3c9fde1",
                     "unlock": [
                         "duration",
                         "fadeEvent"
@@ -216,7 +218,7 @@
                     "list": [
                         {
                             "prefabId": "6b1b396b-83fa-4b7a-8360-c7e156fc0f24",
-                            "id": "ad8da415-1e6d-4e5c-a830-cd5de8448696",
+                            "id": "2bafe15a-ef7d-4535-93bc-205e1d89bc25",
                             "unlock": [
                                 "sceneKey"
                             ],

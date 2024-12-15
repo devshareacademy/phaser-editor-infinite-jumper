@@ -1,5 +1,5 @@
 {
-    "id": "06211504-9ba2-4fad-b7d5-c2e6cb864009",
+    "id": "3e270050-876c-44b2-be37-fa25e56143ae",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -14,10 +14,8 @@
     "displayList": [
         {
             "type": "ArcadeSprite",
-            "id": "86101c20-9b01-4e6e-b897-888662542bbe",
-            "label": "player",
-            "displayName": "Player",
-            "scope": "CLASS",
+            "id": "b4b91bc4-2950-4d35-915c-2a9218e01f6a",
+            "label": "arcadesprite_1",
             "texture": {
                 "key": "player",
                 "frame": "player-idle-1.png"

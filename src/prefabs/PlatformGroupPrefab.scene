@@ -1,5 +1,5 @@
 {
-    "id": "2ccf41e3-e49c-4424-a68d-36cc50509d75",
+    "id": "3a016394-0b07-4002-b58b-fb7cd0757d52",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -14,7 +14,7 @@
     "displayList": [
         {
             "type": "Layer",
-            "id": "305017de-41a7-4e11-a7b4-a06f4f4d58a0",
+            "id": "db0ff16d-3a26-4dd4-bee5-9b68b719e097",
             "label": "layer_1"
         }
     ],

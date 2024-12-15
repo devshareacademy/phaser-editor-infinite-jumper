@@ -1,5 +1,5 @@
 {
-    "id": "37dcb52c-eec0-4cce-8228-4bcbb8788d23",
+    "id": "cb5a0414-995e-49a5-a1b8-066f1a8b8995",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,20 +8,14 @@
         "preloadMethodName": "",
         "preloadPackFiles": [],
         "createMethodName": "",
-        "borderWidth": 240,
-        "borderHeight": 176
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
             "type": "ArcadeImage",
-            "id": "cc2e01e3-1657-49e4-b79f-7d6ab686398e",
-            "label": "container_1",
-            "components": [
-                "HorizontalMove"
-            ],
-            "HorizontalMove.horizontalVelocity": 50,
-            "HorizontalMove.minXPosition": 10,
-            "HorizontalMove.maxXPosition": 200,
+            "id": "bc77ef0a-1f3b-40ae-92b5-0d3636f717a1",
+            "label": "arcadeimage_1",
             "texture": {
                 "key": "platform"
             },
@@ -33,7 +27,7 @@
             "right": false,
             "pushable": false,
             "body.width": 80,
-            "body.height": 12
+            "body.height": 16
         }
     ],
     "plainObjects": [],

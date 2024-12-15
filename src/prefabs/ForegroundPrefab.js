@@ -9,12 +9,13 @@
 export default class ForegroundPrefab extends Phaser.GameObjects.TileSprite {
 
 	constructor(scene, x, y, width, height, texture, frame) {
-		super(scene, x ?? 0, y ?? 0, width ?? 240, height ?? 176, texture || "middleground-no-fungus_1", frame);
+		super(scene, x ?? 0, y ?? 0, width ?? 240, height ?? 176, texture || "middleground-no-fungus", frame);
 
 		this.setOrigin(0, 0);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.setScrollFactor(0);
 		/* END-USER-CTR-CODE */
 	}
 

@@ -26,19 +26,19 @@ export default class Preload extends Phaser.Scene {
 	editorCreate() {
 
 		// progressBar
-		const progressBar = this.add.rectangle(112, 361, 256, 20);
+		const progressBar = this.add.rectangle(553, 361, 256, 20);
 		progressBar.setOrigin(0, 0);
 		progressBar.isFilled = true;
 		progressBar.fillColor = 14737632;
 
 		// progressBarBg
-		const progressBarBg = this.add.rectangle(112, 361, 256, 20);
+		const progressBarBg = this.add.rectangle(553.0120849609375, 361, 256, 20);
 		progressBarBg.setOrigin(0, 0);
 		progressBarBg.fillColor = 14737632;
 		progressBarBg.isStroked = true;
 
 		// loadingText
-		const loadingText = this.add.text(196, 329, "", {});
+		const loadingText = this.add.text(552.0120849609375, 329, "", {});
 		loadingText.text = "Loading...";
 		loadingText.setStyle({ "color": "#e0e0e0", "fontFamily": "arial", "fontSize": "20px" });
 
@@ -71,15 +71,6 @@ export default class Preload extends Phaser.Scene {
 	create() {
 
 		this.scene.start("Title");
-	}
-
-	init() {
-		const isMobile = !this.sys.game.device.os.desktop;
-		if (isMobile) {
-			screen.orientation.lock("portrait").catch((error) => {
-				console.log(error.message);
-			});
-		}
 	}
 
 	/* END-USER-CODE */

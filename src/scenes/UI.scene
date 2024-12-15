@@ -1,5 +1,5 @@
 {
-    "id": "77d106fa-ed9f-4049-ad20-127cff7b9785",
+    "id": "d3413d1b-7d14-4531-864d-e0c26774550e",
     "sceneType": "SCENE",
     "settings": {
         "exportClass": true,
@@ -14,7 +14,7 @@
     "displayList": [
         {
             "type": "Text",
-            "id": "5b7c0735-f6cc-438e-96a3-2d02ac8d2eb2",
+            "id": "2bcd6d1a-5d20-4168-87ab-4923570ae5c5",
             "label": "scoreTextGameObject",
             "displayName": "Score",
             "scope": "CLASS",
@@ -22,8 +22,7 @@
             "y": 5,
             "originX": 1,
             "text": "0",
-            "fontFamily": "PressStart2P-Regular",
-            "fontSize": "8px"
+            "fontFamily": "PressStart2P-Regular"
         }
     ],
     "plainObjects": [],

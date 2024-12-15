@@ -9,7 +9,7 @@
             {
                 "url": "assets/background/background.png",
                 "type": "image",
-                "key": "background_1"
+                "key": "background"
             },
             {
                 "url": "assets/other/ground.png",
@@ -19,7 +19,7 @@
             {
                 "url": "assets/background/middleground-no-fungus.png",
                 "type": "image",
-                "key": "middleground-no-fungus_1"
+                "key": "middleground-no-fungus"
             },
             {
                 "url": "assets/other/platform.png",

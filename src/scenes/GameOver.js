@@ -4,8 +4,8 @@
 /* START OF COMPILED CODE */
 
 import OnAwakeActionScript from "../scriptnodes/utils/OnAwakeActionScript.js";
-import TimeEventActionScript from "../scriptnodes/timer/TimeEventActionScript.js";
 import FadeEffectCameraActionScript from "../scriptnodes/camera/FadeEffectCameraActionScript.js";
+import TimeEventActionScript from "../scriptnodes/timer/TimeEventActionScript.js";
 import StartSceneActionScript from "../scriptnodes/scene/StartSceneActionScript.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -42,21 +42,28 @@ export default class GameOver extends Phaser.Scene {
 		// onAwakeActionScript
 		const onAwakeActionScript = new OnAwakeActionScript(this);
 
+		// fadeEffectCameraActionScript
+		const fadeEffectCameraActionScript = new FadeEffectCameraActionScript(onAwakeActionScript);
+
 		// timeEventActionScript
 		const timeEventActionScript = new TimeEventActionScript(onAwakeActionScript);
 
-		// fadeEffectCameraActionScript
-		const fadeEffectCameraActionScript = new FadeEffectCameraActionScript(timeEventActionScript);
+		// fadeEffectCameraActionScript_1
+		const fadeEffectCameraActionScript_1 = new FadeEffectCameraActionScript(timeEventActionScript);
 
 		// startSceneActionScript
-		const startSceneActionScript = new StartSceneActionScript(fadeEffectCameraActionScript);
+		const startSceneActionScript = new StartSceneActionScript(fadeEffectCameraActionScript_1);
+
+		// fadeEffectCameraActionScript (prefab fields)
+		fadeEffectCameraActionScript.duration = 500;
+		fadeEffectCameraActionScript.fadeEvent = "camerafadeincomplete";
 
 		// timeEventActionScript (prefab fields)
 		timeEventActionScript.delay = 3000;
 
-		// fadeEffectCameraActionScript (prefab fields)
-		fadeEffectCameraActionScript.duration = 500;
-		fadeEffectCameraActionScript.fadeEvent = "camerafadeoutcomplete";
+		// fadeEffectCameraActionScript_1 (prefab fields)
+		fadeEffectCameraActionScript_1.duration = 500;
+		fadeEffectCameraActionScript_1.fadeEvent = "camerafadeoutcomplete";
 
 		// startSceneActionScript (prefab fields)
 		startSceneActionScript.sceneKey = "Title";
@@ -72,7 +79,9 @@ export default class GameOver extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
+
 	create() {
+
 		this.editorCreate();
 		const score = this.registry.get('score');
 		this.scoreValueTextGameObject.setText(score);

@@ -10,8 +10,8 @@
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Preload",
-        "borderWidth": 480,
-        "borderHeight": 640
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
@@ -19,7 +19,7 @@
             "id": "845d4ca6-7417-44fc-97e3-a3bb2fbbdd03",
             "label": "progressBar",
             "scope": "CLASS",
-            "x": 112,
+            "x": 553,
             "y": 361,
             "originX": 0,
             "originY": 0,
@@ -32,7 +32,7 @@
             "type": "Rectangle",
             "id": "10e175a4-81b6-449e-9561-6d8ba54d3812",
             "label": "progressBarBg",
-            "x": 112,
+            "x": 553.0120849609375,
             "y": 361,
             "originX": 0,
             "originY": 0,
@@ -45,7 +45,7 @@
             "type": "Text",
             "id": "c4092661-6339-47cf-9fea-8abff3a46e0c",
             "label": "loadingText",
-            "x": 196,
+            "x": 552.0120849609375,
             "y": 329,
             "text": "Loading...",
             "fontFamily": "arial",
