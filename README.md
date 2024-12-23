@@ -6,7 +6,7 @@ This game was built using the Phaser Editor v4 project template.
 
 To learn how this project was built, you can follow along in a tutorial video on YouTube here:
 
-Coming soon...
+[<img src="https://i.ytimg.com/vi/RIAjbuoYT3I/hqdefault.jpg">](https://youtu.be/RIAjbuoYT3I "Phaser Editor v4 Tutorial: Build a Metroid-Inspired Infinite Jumper!")
 
 ## Demo
 
